@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ProjetoBancoPOO.iml" filepath="$PROJECT_DIR$/ProjetoBancoPOO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/agencia/agencia.iml" filepath="$PROJECT_DIR$/agencia/agencia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/banco/banco.iml" filepath="$PROJECT_DIR$/banco/banco.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cli/cli.iml" filepath="$PROJECT_DIR$/cli/cli.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cliente/cliente.iml" filepath="$PROJECT_DIR$/cliente/cliente.iml" />
+      <module fileurl="file://$PROJECT_DIR$/conta/conta.iml" filepath="$PROJECT_DIR$/conta/conta.iml" />
+      <module fileurl="file://$PROJECT_DIR$/funcionario/funcionario.iml" filepath="$PROJECT_DIR$/funcionario/funcionario.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gui/gui.iml" filepath="$PROJECT_DIR$/gui/gui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pessoa/pessoa.iml" filepath="$PROJECT_DIR$/pessoa/pessoa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/usuario/usuario.iml" filepath="$PROJECT_DIR$/usuario/usuario.iml" />
+    </modules>
+  </component>
+</project>

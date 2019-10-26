@@ -1,6 +1,3 @@
-
----
-
 <!-- Logotipo do Projeto -->
 <p align="center">
   <a href="https://github.com/guilhermeesdras/projeto-banco-poo">

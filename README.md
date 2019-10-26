@@ -4,7 +4,7 @@
 <!-- Logotipo do Projeto -->
 <p align="center">
   <a href="https://github.com/guilhermeesdras/projeto-banco-poo">
-    <img src="images/Projeto Banco Logotipo.png" alt="Logo" height="500">
+    <img src="images/Projeto Banco Logotipo.png" alt="Logo">
   </a>
 </p>
 

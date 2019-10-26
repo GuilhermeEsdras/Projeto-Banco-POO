@@ -8,8 +8,6 @@
   </a>
 </p>
 
-![Total visitor](https://visitor-count-badge.herokuapp.com/total.svg?repo_id=guilhermeesdras.projeto-banco-poo)
-
 ---
 
 <!-- Glossário -->
@@ -18,7 +16,6 @@
 - [Sobre o Projeto](#sobre-o-projeto)
 - [Premissas](#premissas)
 - [Fluxogramas e Diagramas](#fluxogramas-e-diagramas)
-  - [Diagrama de Atividade de Saque em Conta](#diagrama-de-atividade-de-saque-em-conta)
 - [Contato](#contato)
 - [Licença](#licen%c3%a7a)
 
@@ -45,8 +42,6 @@
 
 Mapas e maquetes do projeto.
 > Alguns estão incompletos, outros faltam implementar.
-
-### Diagrama de Atividade de Saque em Conta
 
 <p align="center">
   <a href="https://github.com/guilhermeesdras/projeto-banco-poo">

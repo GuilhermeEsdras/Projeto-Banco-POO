@@ -68,7 +68,7 @@ public class Banco extends PessoaJurídica {
 
         Banco banco = (Banco) o;
 
-        return getCódigo() == banco.getCódigo();
+        return getCódigo().equals(banco.getCódigo());
     }
 
     @Override

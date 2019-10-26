@@ -3,7 +3,6 @@ package com.guilherme.cliente;
 // Outros módulos
 import com.guilherme.conta.contacorrente.ContaCorrente;
 import com.guilherme.conta.contapoupança.ContaPoupança;
-import com.guilherme.pessoa.Pessoa;
 
 // Java utils
 import java.util.Set;

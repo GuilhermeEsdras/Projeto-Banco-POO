@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97eff0b7-0000-4dd1-bfd6-9ae04316cda3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guilherme/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/guilherme/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agencia/agencia.iml" beforeDir="false" afterPath="$PROJECT_DIR$/agencia/agencia.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agencia/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/agencia/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/banco.iml" beforeDir="false" afterPath="$PROJECT_DIR$/banco/banco.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/banco/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/cliente.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/cliente.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conta/conta.iml" beforeDir="false" afterPath="$PROJECT_DIR$/conta/conta.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conta/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/conta/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funcionario/funcionario.iml" beforeDir="false" afterPath="$PROJECT_DIR$/funcionario/funcionario.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funcionario/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/funcionario/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pessoa/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuario/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/usuario/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,6 +24,17 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+        <option value="module-info" />
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="package-info" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,11 +57,22 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Programação Orientada à Objetos/com Java/ProjetoBanco" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.guilherme.banco" />
+      <recent name="com.guilherme.agência" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -65,8 +97,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572093347266</updated>
-      <workItem from="1572093363306" duration="661000" />
+      <workItem from="1572093363306" duration="2184000" />
     </task>
+    <task id="LOCAL-00001" summary="Módulos criados">
+      <created>1572094180201</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572094180201</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -82,5 +122,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Módulos criados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Módulos criados" />
   </component>
 </project>

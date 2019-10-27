@@ -14,15 +14,31 @@ import java.util.Objects;
 
 public class PessoaFísica extends Pessoa {
 
-    private static final String PESSOA_SEM_CPF = "--- Sem CPF ---";
-
+    // Atributos
     private String CPF;
     private String nome;
     private String sobrenome;
-    private Date dataDeNascimento;
+    private String dataDeNascimento;
+
+
+    // Atributos default
+    private static final String PESSOA_SEM_CPF = "--- Sem CPF ---";
+    private static final String PESSOA_SEM_NOME = "Sem nome";
+    private static final String PESSOA_SEM_SOBRENOME = "Sem sobrenome";
+    private static final String PESSOA_SEM_DATADENASCIMENTO = "01/01/2000";
+
+
+    public PessoaFísica(String CPF) {
+        super();
+
+        this.setCPF(CPF);
+        this.setNome(PESSOA_SEM_NOME);
+        this.setSobrenome(PESSOA_SEM_SOBRENOME);
+        this.setDataDeNascimento(PESSOA_SEM_DATADENASCIMENTO);
+    }
 
     public PessoaFísica(Endereço endereço, String telefone, // <- P/ Construtor de Pessoa
-                        String CPF, String nome, String sobrenome, Date dataDeNascimento) {
+                        String CPF, String nome, String sobrenome, String dataDeNascimento) {
 
         super(endereço, telefone);
 
@@ -41,18 +57,16 @@ public class PessoaFísica extends Pessoa {
     }
 
     public void setCPF(String CPF) {
-        if (!CPF.equals(PESSOA_SEM_CPF)) {
-            String CPFTemp = Objects.requireNonNullElse(StringUtils.defaultIfBlank(CPF, PESSOA_SEM_CPF), PESSOA_SEM_CPF);
-            if (CPFVálido(CPFTemp)) {
-                this.CPF =  CPFTemp.substring(0, 3) + "." +
+        String CPFTemp = StringUtils.defaultIfBlank(CPF, PESSOA_SEM_CPF);
+        if (CPFVálido(CPFTemp)) {
+            this.CPF =  CPFTemp.substring(0, 3) + "." +
                         CPFTemp.substring(3, 6) + "." +
                         CPFTemp.substring(6, 9) + "-" +
                         CPFTemp.substring(9, 11);
-            } else {
-                throw new CPFInválidoException();
-            }
-        } else {
+        } else if (CPFTemp.equals(PESSOA_SEM_CPF)) {
             this.CPF = CPF;
+        } else {
+            throw new CPFInválidoException();
         }
     }
 
@@ -72,11 +86,11 @@ public class PessoaFísica extends Pessoa {
         this.sobrenome = sobrenome;
     }
 
-    public Date getDataDeNascimento() {
+    public String getDataDeNascimento() {
         return dataDeNascimento;
     }
 
-    public void setDataDeNascimento(Date dataDeNascimento) {
+    public void setDataDeNascimento(String dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;
     }
 

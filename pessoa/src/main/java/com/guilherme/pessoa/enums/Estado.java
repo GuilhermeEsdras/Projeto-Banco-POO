@@ -27,7 +27,8 @@ public enum Estado {
     SC("Santa Catarina"),
     SP("São Paulo"),
     SE("Sergipe"),
-    TO("Tocantins");
+    TO("Tocantins"),
+    NA("--- Sem Estado ---");
 
     private final String estado;
 

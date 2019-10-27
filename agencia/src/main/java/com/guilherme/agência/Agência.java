@@ -34,8 +34,7 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     private Set<ClientePessoaJurídica> listaDeClientesCNPj;
 
 
-    /* .::Construtores::. */
-
+    // <editor-fold defaultstate="collapsed" desc=".::Construtores::.">
     {
         this.setListaDeFuncionários(new TreeSet<>());
         this.setListaDeClientesCPF(new TreeSet<>());
@@ -49,6 +48,8 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
         super(endereço, telefone, CNPj, nomeFantasia, razãoSocial);
         this.setCódigo(código);
     }
+    // </editor-fold>
+
 
     // <editor-fold defaultstate="collapsed" desc=".::Getters e Setters do Código::.">
     public String getCódigo() {
@@ -84,8 +85,7 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     // </editor-fold>
 
 
-    /* .::Métodos referentes a Clientes (PessoaFísica)::. */
-
+    // <editor-fold defaultstate="collapsed" desc=".::Métodos referentes a Clientes (PessoaFísica)::.">
     public Set<ClientePessoaFísica> getListaDeClientesCPF() {
         return listaDeClientesCPF;
     }
@@ -101,10 +101,10 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     public int getQuantidadeDeClientesPessoaFísica() {
         return this.getListaDeClientesCPF().size();
     }
+    // </editor-fold>
 
 
-    /* .::Métodos referentes a Clientes (PessoaJurídica)::. */
-
+    // <editor-fold defaultstate="collapsed" desc=".::Métodos referentes a Clientes (PessoaJurídica)::.">
     public Set<ClientePessoaJurídica> getListaDeClientesCNPj() {
         return listaDeClientesCNPj;
     }
@@ -120,15 +120,17 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     public int getQuantidadeDeClientesPessoaJurídica() {
         return this.getListaDeClientesCNPj().size();
     }
+    // </editor-fold>
 
-    /* .::Métodos referentes a Clientes (Genérico) */
 
+    // <editor-fold defaultstate="collapsed" desc=".::Métodos referentes a Clientes (Genérico)::.">
     public int getQuantidadeDeClientesTotal() {
         return this.getQuantidadeDeClientesPessoaFísica() + this.getQuantidadeDeClientesPessoaJurídica();
     }
+    // </editor-fold>
 
 
-    /* .::Equals e Hashcode (para evitar duplicatas em Sets)::. */
+    // <editor-fold defaultstate="collapsed" desc=".::Equals e Hashcode (para evitar duplicatas em Sets)::.">
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -136,18 +138,20 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
 
         Agência agência = (Agência) o;
 
-        return getCódigo() == agência.getCódigo();
+        return getCódigo().equals(agência.getCódigo());
     }
 
     @Override
     public int hashCode() {
         return Objects.hashCode(getCódigo());
     }
+    // </editor-fold>
 
 
-    /* .::Comparador da interface Comparable (necessário para o ordenador do TreeSet)::. */
+    // <editor-fold defaultstate="collapsed" desc=".::Comparador da interface Comparable (necessário para o ordenador do TreeSet)::.">
     @Override
     public int compareTo(Agência outraAgência) {
         return getCódigo().compareTo(outraAgência.getCódigo());
     }
+    // </editor-fold>
 }

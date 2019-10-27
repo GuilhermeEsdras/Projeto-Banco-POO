@@ -20,7 +20,7 @@ public class Funcionário extends PessoaFísica implements Comparable<Funcionár
     }
 
     public Funcionário(Endereço endereço, String telefone, // Construtor de Pessoa
-                       String CPF, String nome, String sobrenome, Date dataDeNascimento, // Construtor de PessoaFísica
+                       String CPF, String nome, String sobrenome, String dataDeNascimento, // Construtor de PessoaFísica
                        double salárioBase)
     {
         super(endereço, telefone, CPF, nome, sobrenome, dataDeNascimento);
@@ -31,7 +31,7 @@ public class Funcionário extends PessoaFísica implements Comparable<Funcionár
         return ID;
     }
 
-    public void setID(int ID) {
+    private void setID(int ID) {
         this.ID = ID;
     }
 

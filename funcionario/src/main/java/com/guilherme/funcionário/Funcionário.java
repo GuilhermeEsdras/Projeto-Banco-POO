@@ -13,10 +13,17 @@ public class Funcionário extends PessoaFísica implements Comparable<Funcionár
     private int ID;
     private double salárioBase;
 
+    private static int SALÁRIO_MÍNIMO = 1000;
+
     private static int INCREMENTADOR = 1;
 
     {
         this.setID(INCREMENTADOR++);
+    }
+
+    public Funcionário() {
+        super();
+        this.setSalárioBase(SALÁRIO_MÍNIMO);
     }
 
     public Funcionário(Endereço endereço, String telefone, // Construtor de Pessoa
@@ -40,7 +47,9 @@ public class Funcionário extends PessoaFísica implements Comparable<Funcionár
     }
 
     public void setSalárioBase(double salárioBase) {
-        this.salárioBase = salárioBase;
+        if (salárioBase > 0) {
+            this.salárioBase = salárioBase;
+        }
     }
 
     @Override

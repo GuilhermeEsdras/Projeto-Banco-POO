@@ -2,11 +2,12 @@ package com.guilherme.agência;
 
 // Outros módulos
 import com.guilherme.funcionário.Funcionário;
+import com.guilherme.funcionário.caixa.Caixa;
 import com.guilherme.funcionário.gerente.Gerente;
 import com.guilherme.pessoa.Endereço;
+import com.guilherme.pessoa.enums.Estado;
 
 // Hamcrest
-import com.guilherme.pessoa.enums.Estado;
 import org.hamcrest.*;
 
 // JUnit
@@ -15,7 +16,7 @@ import org.junit.*;
 
 public class AgênciaTest {
 
-    static final Funcionário gerente = new Gerente("12345678910" )
+    static final Funcionário caixa = new Caixa();
 
     @Test
     public void testDeveCadastrarFuncionário() {

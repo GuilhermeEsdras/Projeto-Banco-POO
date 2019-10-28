@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="97eff0b7-0000-4dd1-bfd6-9ae04316cda3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agencia/src/main/java/com/guilherme/agência/Agência.java" beforeDir="false" afterPath="$PROJECT_DIR$/agencia/src/main/java/com/guilherme/agência/Agência.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agencia/src/test/java/com/guilherme/agência/AgênciaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/agencia/src/test/java/com/guilherme/agência/AgênciaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/src/test/java/com/guilherme/banco/BancoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/banco/src/test/java/com/guilherme/banco/BancoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/Funcionário.java" beforeDir="false" afterPath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/Funcionário.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/Endereço.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/Endereço.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/Pessoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/enums/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/enums/Estado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/caixa/Caixa.java" beforeDir="false" afterPath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/caixa/Caixa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/pessoafísica/PessoaFísica.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/pessoafísica/PessoaFísica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/pessoajurídica/PessoaJurídica.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/pessoajurídica/PessoaJurídica.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +92,9 @@
       <option name="presentableId" value="Default" />
       <updated>1572093347266</updated>
       <workItem from="1572093363306" duration="3953000" />
-      <workItem from="1572123953427" duration="6309000" />
+      <workItem from="1572123953427" duration="9380000" />
+      <workItem from="1572187050933" duration="5307000" />
+      <workItem from="1572271879462" duration="904000" />
     </task>
     <task id="LOCAL-00001" summary="Módulos criados">
       <created>1572094180201</created>

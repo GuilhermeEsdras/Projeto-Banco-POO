@@ -16,7 +16,9 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * <p>Classe que modelo objeto do tipo Agência.</p>
+ * <h1>Agência</h1>
+ *
+ * <p>Classe que modela objeto do tipo Agência.</p>
  * <p>Possui um código de 4 dígitos para fins de autenticação, uma lista de Funcionários, uma lista de Clientes do
  * tipo PessoaFísica e outra do tipo PessoaJurídica.</p>
  * <p>Fica responsável por cadastrar e armazenar os Clientes e Funcionários de seu Banco.</p>

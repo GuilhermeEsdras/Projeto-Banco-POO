@@ -4,22 +4,27 @@ import com.guilherme.conta.exceptions.*;
 import com.guilherme.conta.services.*;
 import com.guilherme.pessoa.Pessoa;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência, ServiçoDeExtrato {
 
-    /* Atributos principais de uma Conta */
+    /* Atributos */
     private Pessoa titular;
-    private int número;
+    private int    número;
     private double saldo;
 
-    /* Mapa que armazena todas as transações e movimentações da conta
-     onde a chave é a data da transação e o valor é uma lista de operações do tipo String */
-    private Map<Date, LinkedList<String>> históricoDeMovimentação;
+    /**
+     * Mapa que armazena todas as transações e movimentações da conta, onde:
+     * Chave (key) é a data da operação em formato String,
+     * Valor (value) é uma lista de operações do tipo String
+     */
+    private Map<String, LinkedList<String>> históricoDeMovimentação;
 
-    /* Constante auxiliar para o número da conta */
-    private static int ULTIMO_NUMERO = 111111;
+
+    /* Constantes */
+    private static int ULTIMO_NUMERO = 111111; // Constante auxiliar para o número da conta
 
 
     /* Taxas */
@@ -28,8 +33,11 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
     private double taxaDeExtrato;
 
 
-    /* Construtores */
-    {
+    /* ------------------ */
+    /* .::Construtores::. */
+    /* ------------------ */
+
+    { // Bloco de inicialização de instância
         this.setNúmero(ULTIMO_NUMERO++);
 
         this.setHistóricoDeMovimentação(new LinkedHashMap<>());
@@ -45,7 +53,9 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
     }
 
 
-    /* .::Getters e Setters de uma Conta::. */
+    /* ----------------------- */
+    /* .::Getters e Setters::. */
+    /* ----------------------- */
 
     public Pessoa getTitular() {
         return titular;
@@ -72,7 +82,9 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
     }
 
 
-    /* .::Métodos referentes ao Serviço de Saque::. */
+    /* ---------------------- */
+    /* .::Serviço de Saque::. */
+    /* ---------------------- */
 
     @Override
     public double getTaxaDeSaque() {
@@ -88,13 +100,10 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
         if ( (quantia > 0) && ( this.getSaldo() > (quantia + calculaTaxaDeSaque(quantia)) ) ) {
             this.setSaldo( descontaSaque(this.getSaldo(), quantia) );
 
-
-            Calendar cal = Calendar.getInstance();
-            cal.set(Calendar.HOUR_OF_DAY, 0);
-            cal.set(Calendar.MINUTE, 0);
-            cal.set(Calendar.SECOND, 0);
-            cal.set(Calendar.MILLISECOND, 0);
-            Date dateWithoutTime = cal.getTime();
+            DateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+            Date dataAtual = Calendar.getInstance().getTime();
+            String dataAtualFormatada = formatador.format(dataAtual);
+//            históricoDeMovimentação.put(dataAtualFormatada);
 
 
             return quantia;
@@ -108,7 +117,9 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
     }
 
 
-    /* .::Métodos referentes ao Serviço de Transferência::. */
+    /* ------------------------------ */
+    /* .::Serviço de Transferência::. */
+    /* ------------------------------ */
 
     @Override
     public double getTaxaDeTransferência() {
@@ -120,13 +131,15 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
     }
 
 
-    /* .::Métodos referentes ao Serviço de Extrato::. */
+    /* ------------------------ */
+    /* .::Serviço de Extrato::. */
+    /* ------------------------ */
 
-    public Map<Date, LinkedList<String>> getHistóricoDeMovimentação() {
+    public Map<String, LinkedList<String>> getHistóricoDeMovimentação() {
         return históricoDeMovimentação;
     }
 
-    public void setHistóricoDeMovimentação(Map<Date, LinkedList<String>> históricoDeMovimentação) {
+    public void setHistóricoDeMovimentação(Map<String, LinkedList<String>> históricoDeMovimentação) {
         this.históricoDeMovimentação = históricoDeMovimentação;
     }
 
@@ -139,13 +152,16 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
         this.taxaDeExtrato = taxaDeExtrato;
     }
 
-    @Override
-    public Map<Date, LinkedList<String>> getExtrato() {
-        return getHistóricoDeMovimentação();
-    }
+//    @Override
+//    public Map<String, LinkedList<String>> getExtrato() {
+//        return getHistóricoDeMovimentação();
+//    }
 
 
-    /* Métodos essenciais para listas do tipo Hash */
+    /* ----------------------- */
+    /* .::Equals e Hashcode::. */
+    /* ----------------------- */
+    // Principalmente utilizado como parâmetro de remoção de duplicatas em mapas e/ou conjuntos.
 
     @Override
     public boolean equals(Object o) {
@@ -163,7 +179,10 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
     }
 
 
-    /* toString básico de uma Conta */
+    /* -------- */
+    /* toString */
+    /* -------- */
+    // Dados do objeto em formato String.
 
     @Override
     public String toString() {

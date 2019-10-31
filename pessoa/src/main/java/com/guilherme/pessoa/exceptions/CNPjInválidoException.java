@@ -5,7 +5,7 @@ public class CNPjInválidoException extends RuntimeException {
         this("CNPj inválido!");
     }
 
-    public CNPjInválidoException(String messagem) {
-        super(messagem);
+    public CNPjInválidoException(String mensagem) {
+        super(mensagem);
     }
 }

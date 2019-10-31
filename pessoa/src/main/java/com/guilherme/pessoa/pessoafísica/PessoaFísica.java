@@ -1,73 +1,89 @@
 package com.guilherme.pessoa.pessoafísica;
 
-// Outros módulos
-import com.guilherme.pessoa.Endereço;
+// Outros packages
 import com.guilherme.pessoa.Pessoa;
+import com.guilherme.pessoa.Endereço;
 import com.guilherme.pessoa.exceptions.*;
 
 // Apache Utils | Funções úteis
 import org.apache.commons.lang3.*;
 
 // Java utils
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.Calendar;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
-public class PessoaFísica extends Pessoa implements Comparable<PessoaFísica> {
+
+/**
+ * <h1>Pessoa Física</h1>
+ *
+ * <p>Classe que modela uma Pessoa Física.</p>
+ * <p>Uma Pessoa Física herda de Pessoa e além disso possui CPF, Nome, Sobrenome, Data de Nascimento e Idade.</p>
+ *
+ * @since 1.0
+ * @author Guilherme Esdras
+ * @version 1.0
+ */
+public class PessoaFísica extends Pessoa {
 
     // Atributos
     private String CPF;
     private String nome;
     private String sobrenome;
     private String dataDeNascimento;
-    private short idade;
+    private byte   idade;
 
     // Atributos default
-    private static final String PESSOA_SEM_CPF = "--- Sem CPF ---";
-    private static final String PESSOA_SEM_NOME = "Sem nome";
-    private static final String PESSOA_SEM_SOBRENOME = "Sem sobrenome";
-    private static final String PESSOA_SEM_DATADENASCIMENTO = "01/01/2000";
+    static final String PESSOA_SEM_CPF              = "--- Sem CPF ---";
+    static final String PESSOA_SEM_NOME             = "--- Sem nome ---";
+    static final String PESSOA_SEM_SOBRENOME        = "--- Sem sobrenome ---";
+    static final String PESSOA_SEM_DATADENASCIMENTO = "01/01/2001";
 
+
+    /* ------------------ */
+    /* .::Construtores::. */
+    /* ------------------ */
 
     // Construtor vazio
     public PessoaFísica() {
         super();
 
-        this.setCPF(PESSOA_SEM_CPF);
-        this.setNome(PESSOA_SEM_NOME);
-        this.setSobrenome(PESSOA_SEM_SOBRENOME);
-        this.setDataDeNascimento(PESSOA_SEM_DATADENASCIMENTO);
+        this.setCPF( PESSOA_SEM_CPF );
+        this.setNome( PESSOA_SEM_NOME );
+        this.setSobrenome( PESSOA_SEM_SOBRENOME );
+        this.setDataDeNascimento( PESSOA_SEM_DATADENASCIMENTO );
     }
 
     // Construtor que recebe apenas CPF
     public PessoaFísica(String CPF) {
         super();
 
-        this.setCPF(CPF);
-        this.setNome(PESSOA_SEM_NOME);
-        this.setSobrenome(PESSOA_SEM_SOBRENOME);
-        this.setDataDeNascimento(PESSOA_SEM_DATADENASCIMENTO);
+        this.setCPF( CPF );
+        this.setNome( PESSOA_SEM_NOME );
+        this.setSobrenome( PESSOA_SEM_SOBRENOME );
+        this.setDataDeNascimento( PESSOA_SEM_DATADENASCIMENTO );
     }
 
     // Construtor completo
     public PessoaFísica(Endereço endereço, String telefone, // <- P/ Construtor de Pessoa
                         String CPF, String nome, String sobrenome, String dataDeNascimento) {
 
-        super(endereço, telefone);
+        super( endereço, telefone );
 
-        this.setCPF(CPF);
-        this.setNome(nome);
-        this.setSobrenome(sobrenome);
-        this.setDataDeNascimento(dataDeNascimento);
+        this.setCPF( CPF );
+        this.setNome( nome );
+        this.setSobrenome( sobrenome );
+        this.setDataDeNascimento( dataDeNascimento );
     }
 
 
+    /* ----------------------- */
     /* .::Getters e Setters::. */
+    /* ----------------------- */
 
     public String getCPF() {
         return CPF;
@@ -93,7 +109,7 @@ public class PessoaFísica extends Pessoa implements Comparable<PessoaFísica> {
     }
 
     public void setNome(String nome) {
-        if (nome.length() > 0) {
+        if ((nome.length() > 0) && !(StringUtils.isNumeric(nome))) {
             this.nome = nome;
         }
     }
@@ -103,7 +119,7 @@ public class PessoaFísica extends Pessoa implements Comparable<PessoaFísica> {
     }
 
     public void setSobrenome(String sobrenome) {
-        if (sobrenome.length() > 0) {
+        if ((sobrenome.length() > 0) && !(StringUtils.isNumeric(sobrenome))) {
             this.sobrenome = sobrenome;
         }
     }
@@ -113,9 +129,32 @@ public class PessoaFísica extends Pessoa implements Comparable<PessoaFísica> {
     }
 
     public void setDataDeNascimento(String dataDeNascimento) {
-        if (dataDeNascimentoVálida("dd/MM/yyyy", dataDeNascimento, Locale.getDefault())) {
-            this.dataDeNascimento = dataDeNascimento;
-            this.setIdade(dataDeNascimento);
+        try {
+            DateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+
+            Date dataAtual = Calendar.getInstance().getTime();
+            Date dataDeNascimentoFormatada = formatador.parse(dataDeNascimento);
+
+            if (dataDeNascimentoFormatada.before(dataAtual))
+            {
+                int idadeTemp = calculaIdade(dataDeNascimentoFormatada, dataAtual);
+
+                if (idadeTemp >= 0 && idadeTemp < 127)
+                {
+                    this.dataDeNascimento = dataDeNascimento;
+                    byte idade = (byte) idadeTemp;
+                    this.setIdade(idade);
+
+                } else {
+                    throw new DataInválidaException("Idade fora dos limites!");
+                }
+
+            } else {
+                throw new DataInválidaException("Data de nascimento não pode ser no futuro!");
+            }
+
+        } catch (ParseException p) {
+            throw new DataInválidaException();
         }
     }
 
@@ -123,36 +162,33 @@ public class PessoaFísica extends Pessoa implements Comparable<PessoaFísica> {
         return idade;
     }
 
-    public void setIdade(String dataDeNascimento) {
-
+    private void setIdade(byte idade) {
+        if (idade >= 0) {
+            this.idade = idade;
+        }
     }
 
 
-    /* .::Equals e Hashcode::. */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        PessoaFísica that = (PessoaFísica) o;
-
-        return getCPF().equals(that.getCPF());
-    }
+    /* -------- */
+    /* toString */
+    /* -------- */
+    // Dados do objeto em formato String.
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(getCPF());
+    public String toString() {
+        return "PessoaFísica{" +
+                "CPF='" + CPF + '\'' +
+                ", nome='" + nome + '\'' +
+                ", sobrenome='" + sobrenome + '\'' +
+                ", dataDeNascimento='" + dataDeNascimento + '\'' +
+                ", idade=" + idade +
+                '}';
     }
 
 
-    /* .::Comparador::. */
-    @Override
-    public int compareTo(PessoaFísica outraPessoaFísica) {
-        return this.getCPF().compareTo(outraPessoaFísica.getCPF());
-    }
-
-
+    /* ------------------------ */
     /* .::Métodos auxiliares::. */
+    /* ------------------------ */
 
     /**
      * <h1>CPF Válido</h1>
@@ -169,42 +205,30 @@ public class PessoaFísica extends Pessoa implements Comparable<PessoaFísica> {
 
 
     /**
-     * <h1>Data De Nascimento Válida</h1>
+     * <h1>Calcula Idade</h1>
      *
-     * <p>Verifica se uma determinada data de nascimento recebida no formato String é válida.</p>
+     * <p>Calcula a diferença em anos entre duas datas passadas como argumento.</p>
      *
-     * @param formato Formato de data requerido;
-     * @param dataDeNascimento Data no formato String;
-     * @param local Local.
-     * @return Valor booleano. True se for, Falso caso contrário.
+     * @param dataDeNascimento Data de nascimento.
+     * @param dataAtual Data atual.
+     * @return Valor representando a diferença (idade) em anos.
      */
-    public static boolean dataDeNascimentoVálida(String formato, String dataDeNascimento, Locale local) {
+    protected int calculaIdade(Date dataDeNascimento, Date dataAtual)
+    {
+        Calendar nasci = Calendar.getInstance(Locale.getDefault());
+        nasci.setTime(dataDeNascimento);
+        Calendar atual = Calendar.getInstance(Locale.getDefault());
+        atual.setTime(dataAtual);
 
-        LocalDateTime ldt = null;
-        DateTimeFormatter fomatador = DateTimeFormatter.ofPattern(formato, local);
+        int diferença = atual.get(Calendar.YEAR) - nasci.get(Calendar.YEAR);
 
-        try {
-            ldt = LocalDateTime.parse(dataDeNascimento, fomatador);
-            String resultado = ldt.format(fomatador);
-            return resultado.equals(dataDeNascimento);
-
-        } catch (DateTimeParseException e) {
-            try {
-                LocalDate ld = LocalDate.parse(dataDeNascimento, fomatador);
-                String resultado = ld.format(fomatador);
-                return resultado.equals(dataDeNascimento);
-            } catch (DateTimeParseException exp) {
-                try {
-                    LocalTime lt = LocalTime.parse(dataDeNascimento, fomatador);
-                    String resultado = lt.format(fomatador);
-                    return resultado.equals(dataDeNascimento);
-                } catch (DateTimeParseException e2) {
-                    // Debug
-                    //e2.printStackTrace();
-                }
-            }
+        if ( nasci.get(Calendar.MONTH) >  atual.get(Calendar.MONTH) ||
+             nasci.get(Calendar.MONTH) == atual.get(Calendar.MONTH) &&
+             nasci.get(Calendar.DATE)  >  atual.get(Calendar.DATE)
+        ) {
+            diferença--;
         }
 
-        return false;
+        return diferença;
     }
 }

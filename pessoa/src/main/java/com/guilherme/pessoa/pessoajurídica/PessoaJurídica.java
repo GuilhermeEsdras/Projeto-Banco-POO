@@ -2,17 +2,20 @@ package com.guilherme.pessoa.pessoajurídica;
 
 
 // Outros packages
-import com.guilherme.pessoa.Endereço;
 import com.guilherme.pessoa.Pessoa;
-import com.guilherme.pessoa.exceptions.CNPjInválidoException;
+import com.guilherme.pessoa.Endereço;
+import com.guilherme.pessoa.exceptions.*;
 
 
 // Apache utils
 import org.apache.commons.lang3.StringUtils;
 
+
 /**
- * Classe que modela uma Pessoa Jurídica.
- * Uma Pessoa Jurídica herda de Pessoa e além disso possui CNPj, Nome Fantasia e Razão Social.
+ * <h1>Pessoa Jurídica</h1>
+ *
+ * <p>Classe que modela uma Pessoa Jurídica.</p>
+ * <p>Uma Pessoa Jurídica herda de Pessoa e além disso possui CNPj, Nome Fantasia e Razão Social.</p>
  *
  * @since 1.0
  * @author Guilherme Esdras
@@ -20,31 +23,46 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class PessoaJurídica extends Pessoa {
 
-    // Atributos
+    /* Atributos */
     private String CNPj;
     private String nomeFantasia;
     private String razãoSocial;
 
 
-    // Atributos Default
-    private static final String PESSOA_JURÍDICA_SEM_CNPJ = "--- Sem CNPj ---";
-    private static final String PESSOA_JURÍDICA_SEM_NOMEFANTASIA = "--- Sem Nome Fantasia ---";
-    private static final String PESSOA_JURÍDICA_SEM_RAZÃOSOCIAL = "--- Sem Razão Social ---";
+    /* Atributos Default */
+    static final String PESSOA_JURÍDICA_SEM_CNPJ         = "--- Sem CNPj ---";
+    static final String PESSOA_JURÍDICA_SEM_NOMEFANTASIA = "--- Sem Nome Fantasia ---";
+    static final String PESSOA_JURÍDICA_SEM_RAZÃOSOCIAL  = "--- Sem Razão Social ---";
 
 
-    // Construtores
-    public PessoaJurídica(Endereço endereço, String telefone, // <- Pessoa
-                          String CNPj, String nomeFantasia, String razãoSocial) {
+    /* ------------------ */
+    /* .::Construtores::. */
+    /* ------------------ */
 
-        super(endereço, telefone);
+    // Construtor vazio
+    public PessoaJurídica()
+    {
+        super();
+        this.setCNPj( PESSOA_JURÍDICA_SEM_CNPJ );
+        this.setNomeFantasia( PESSOA_JURÍDICA_SEM_NOMEFANTASIA );
+        this.setRazãoSocial( PESSOA_JURÍDICA_SEM_RAZÃOSOCIAL );
+    }
 
-        this.setCNPj(CNPj);
-        this.setNomeFantasia(nomeFantasia);
-        this.setRazãoSocial(razãoSocial);
+    // Construtor com dados
+    public PessoaJurídica( Endereço endereço, String telefone, // <- Pessoa
+                           String CNPj, String nomeFantasia, String razãoSocial)
+    {
+        super( endereço, telefone );
+        this.setCNPj( CNPj );
+        this.setNomeFantasia( nomeFantasia );
+        this.setRazãoSocial( razãoSocial );
     }
 
 
-    // Getters e Setters
+    /* ----------------------- */
+    /* .::Getters e Setters::. */
+    /* ----------------------- */
+
     public String getCNPj() {
         return CNPj;
     }
@@ -86,7 +104,24 @@ public class PessoaJurídica extends Pessoa {
     }
 
 
-    /* Métodos auxiliares */
+    /* -------- */
+    /* toString */
+    /* -------- */
+    // Dados do objeto em formato String.
+
+    @Override
+    public String toString() {
+        return "PessoaJurídica{" +
+                "CNPj='" + CNPj + '\'' +
+                ", nomeFantasia='" + nomeFantasia + '\'' +
+                ", razãoSocial='" + razãoSocial + '\'' +
+                '}';
+    }
+
+
+    /* ------------------------ */
+    /* .::Métodos auxiliares::. */
+    /* ------------------------ */
 
     /**
      * <h1>CNPj Válido</h1>
@@ -100,5 +135,4 @@ public class PessoaJurídica extends Pessoa {
     private boolean CNPjVálido(String CNPj) {
         return (CNPj.length() == 14) && (CNPj.replaceAll(String.valueOf(CNPj.charAt(0)), "").length() > 0);
     }
-
 }

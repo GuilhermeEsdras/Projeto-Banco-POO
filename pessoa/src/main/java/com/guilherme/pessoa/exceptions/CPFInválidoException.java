@@ -5,8 +5,8 @@ public class CPFInválidoException extends RuntimeException {
         this("CPF inválido!");
     }
 
-    public CPFInválidoException(String messagem) {
-        super(messagem);
+    public CPFInválidoException(String mensagem) {
+        super(mensagem);
     }
 
 }

@@ -1,36 +1,55 @@
 package com.guilherme.pessoa;
 
 import com.guilherme.pessoa.enums.Estado;
+import com.guilherme.pessoa.exceptions.EstadoInválidoException;
+import org.apache.commons.lang3.EnumUtils;
 
+/**
+ * <h1>Endereço</h1>
+ *
+ * <p>Classe que modela um objeto do tipo Endereço.</p>
+ *
+ * @since 1.0
+ * @author Guilherme Esdras
+ * @version 1.0
+ */
 public class Endereço {
 
     // Atributos
-    private String logradouro;
-    private int número;
-    private String complemento;
-    private String bairro;
-    private String cidade;
-    private Estado estado;
+    private String  logradouro;
+    private int     número;
+    private String  complemento;
+    private String  bairro;
+    private String  cidade;
+    private Estado  estado;
 
 
     // Atributos default
-    private static final String SEM_LOGRADOURO = "--- Sem logradouro ---";
-    private static final int SEM_NÚMERO = 0;
-    private static final String SEM_COMPLEMENTO = "--- Sem complemento ---";
-    private static final String SEM_BAIRRO = "--- Sem bairro ---";
-    private static final String SEM_CIDADE = "--- Sem cidade ---";
+    static final String SEM_LOGRADOURO  = "--- Sem logradouro ---";
+    static final int    SEM_NÚMERO      = 0;
+    static final String SEM_COMPLEMENTO = "--- Sem complemento ---";
+    static final String SEM_BAIRRO      = "--- Sem bairro ---";
+    static final String SEM_CIDADE      = "--- Sem cidade ---";
+    static final String SEM_ESTADO      = "NA";
 
 
+    /* ------------------ */
+    /* .::Construtores::. */
+    /* ------------------ */
+
+    // Construtor vazio
     public Endereço()
     {
         this.setLogradouro(SEM_LOGRADOURO);
         this.setNúmero(SEM_NÚMERO);
+        this.setComplemento(SEM_COMPLEMENTO);
         this.setBairro(SEM_BAIRRO);
         this.setCidade(SEM_CIDADE);
-        this.setEstado(Estado.NA);
+        this.setEstado(SEM_ESTADO);
     }
 
-    public Endereço(String logradouro, int número, String bairro, String cidade, Estado estado)
+    // Construtor sem complemento
+    public Endereço(String logradouro, int número, String bairro, String cidade, String estado)
     {
         this.setLogradouro(logradouro);
         this.setNúmero(número);
@@ -40,7 +59,8 @@ public class Endereço {
         this.setEstado(estado);
     }
 
-    public Endereço(String logradouro, int número, String complemento, String bairro, String cidade, Estado estado)
+    // Construtor completo
+    public Endereço(String logradouro, int número, String complemento, String bairro, String cidade, String estado)
     {
         this.setLogradouro(logradouro);
         this.setNúmero(número);
@@ -49,6 +69,11 @@ public class Endereço {
         this.setCidade(cidade);
         this.setEstado(estado);
     }
+
+
+    /* ----------------------- */
+    /* .::Getters e Setters::. */
+    /* ----------------------- */
 
     public String getLogradouro() {
         return logradouro;
@@ -104,7 +129,29 @@ public class Endereço {
         return estado;
     }
 
-    public void setEstado(Estado estado) {
-        this.estado = estado;
+    public void setEstado(String estado) {
+        if (EnumUtils.isValidEnum(Estado.class, estado)) {
+            this.estado = Estado.valueOf(estado);
+        } else {
+            throw new EstadoInválidoException();
+        }
+    }
+
+
+    /* -------- */
+    /* toString */
+    /* -------- */
+    // Dados do objeto em formato String.
+
+    @Override
+    public String toString() {
+        return "Endereço{" +
+                "logradouro='" + logradouro + '\'' +
+                ", número=" + número +
+                ", complemento='" + complemento + '\'' +
+                ", bairro='" + bairro + '\'' +
+                ", cidade='" + cidade + '\'' +
+                ", estado=" + estado +
+                '}';
     }
 }

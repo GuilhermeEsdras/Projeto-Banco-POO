@@ -43,16 +43,30 @@ public class PessoaJurídica extends Pessoa {
     public PessoaJurídica()
     {
         super();
+
         this.setCNPj( PESSOA_JURÍDICA_SEM_CNPJ );
         this.setNomeFantasia( PESSOA_JURÍDICA_SEM_NOMEFANTASIA );
         this.setRazãoSocial( PESSOA_JURÍDICA_SEM_RAZÃOSOCIAL );
     }
 
-    // Construtor com dados
+    // Construtor básico sem informações de Usuário
     public PessoaJurídica( Endereço endereço, String telefone, // <- Pessoa
                            String CNPj, String nomeFantasia, String razãoSocial)
     {
         super( endereço, telefone );
+
+        this.setCNPj( CNPj );
+        this.setNomeFantasia( nomeFantasia );
+        this.setRazãoSocial( razãoSocial );
+    }
+
+    // Construtor completo
+    public PessoaJurídica( String email, String login, String senha, // <-- Usuário
+                           Endereço endereço, String telefone,       // <-- Pessoa
+                           String CNPj, String nomeFantasia, String razãoSocial)
+    {
+        super( email, login, senha, endereço, telefone );
+
         this.setCNPj( CNPj );
         this.setNomeFantasia( nomeFantasia );
         this.setRazãoSocial( razãoSocial );

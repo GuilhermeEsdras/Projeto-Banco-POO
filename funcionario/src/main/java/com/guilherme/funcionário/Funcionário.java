@@ -34,6 +34,18 @@ public class Funcionário extends PessoaFísica implements Comparable<Funcionár
         this.setSalárioBase(salárioBase);
     }
 
+    public Funcionário(String email, String login, String senha, // Construtor de Usuário
+                       Endereço endereço, String telefone, // Construtor de Pessoa
+                       String CPF, String nome, String sobrenome, String dataDeNascimento, // Construtor de PessoaFísica
+                       double salárioBase)
+    {
+        super(email, login, senha,
+              endereço, telefone,
+              CPF, nome, sobrenome, dataDeNascimento
+        );
+        this.setSalárioBase(salárioBase);
+    }
+
     public int getID() {
         return ID;
     }

@@ -64,6 +64,19 @@ public class Banco extends PessoaJurídica implements Comparable<Banco> {
         this.setCódigo(código);
     }
 
+    // Construtor completo
+    public Banco(String email, String login, String senha, // Construtor de Usuário
+                 Endereço endereço, String telefone,
+                 String CNPj, String nomeFantasia, String razãoSocial,
+                 String código)
+    {
+        super(  email, login, senha,
+                endereço, telefone,
+                CNPj, nomeFantasia, razãoSocial
+        );
+        this.setCódigo(código);
+    }
+
 
     /* ----------------------- */
     /* .::Getters e Setters::. */

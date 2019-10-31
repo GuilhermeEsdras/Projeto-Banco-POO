@@ -5,6 +5,7 @@ import com.guilherme.pessoa.exceptions.*;
 
 
 // Apache utils
+import com.guilherme.usuário.Usuário;
 import org.apache.commons.lang3.*;
 
 
@@ -18,7 +19,7 @@ import org.apache.commons.lang3.*;
  * @author Guilherme Esdras
  * @version 1.0
  */
-public abstract class Pessoa {
+public abstract class Pessoa extends Usuário {
 
     /* Atributos */
     private Endereço endereço;
@@ -35,20 +36,34 @@ public abstract class Pessoa {
 
     // Construtor vazio
     public Pessoa() {
-        this.setTelefone(PESSOA_SEM_TELEFONE);
-        this.setEndereço(new Endereço());
+        super();
+        this.setTelefone( PESSOA_SEM_TELEFONE );
+        this.setEndereço( new Endereço() );
+    }
+
+    // Construtor de Pessoa sem informações de Usuário (para testes)
+    public Pessoa(Endereço endereço, String telefone) {
+        super();
+        this.setEndereço( endereço );
+        this.setTelefone( telefone );
     }
 
     // Construtor sem telefone / com endereço
-    public Pessoa(Endereço endereço) {
-        this.setTelefone(PESSOA_SEM_TELEFONE);
-        this.setEndereço(endereço);
+    public Pessoa(String email, String login, String senha, // <-- Usuário
+                  Endereço endereço)
+    {
+        super( email, login, senha );
+        this.setTelefone( PESSOA_SEM_TELEFONE );
+        this.setEndereço( endereço );
     }
 
     // Construtor completo
-    public Pessoa(Endereço endereço, String telefone) {
-        this.setEndereço(endereço);
-        this.setTelefone(telefone);
+    public Pessoa(String email, String login, String senha, // <-- Usuário
+                  Endereço endereço, String telefone)
+    {
+        super( email, login, senha );
+        this.setEndereço( endereço );
+        this.setTelefone( telefone );
     }
 
 

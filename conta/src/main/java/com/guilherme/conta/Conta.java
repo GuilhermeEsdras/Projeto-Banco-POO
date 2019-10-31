@@ -5,6 +5,7 @@ import com.guilherme.conta.services.*;
 import com.guilherme.pessoa.Pessoa;
 
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -20,7 +21,7 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
      * Chave (key) é a data da operação em formato String,
      * Valor (value) é uma lista de operações do tipo String
      */
-    private Map<String, LinkedList<String>> históricoDeMovimentação;
+    private Map<String, List<String>> históricoDeMovimentação;
 
 
     /* Constantes */
@@ -98,13 +99,17 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
     @Override
     public double sacar(double quantia) {
         if ( (quantia > 0) && ( this.getSaldo() > (quantia + calculaTaxaDeSaque(quantia)) ) ) {
-            this.setSaldo( descontaSaque(this.getSaldo(), quantia) );
+            this.setSaldo( descontaTaxaDeSaque(this.getSaldo(), quantia) );
 
+            Locale local = new Locale("pt", "BR");
             DateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+            NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(local);
+
             Date dataAtual = Calendar.getInstance().getTime();
             String dataAtualFormatada = formatador.format(dataAtual);
-//            históricoDeMovimentação.put(dataAtualFormatada);
 
+            String descriçãoDaTransação = "Saque | No valor de: " + formatoMoeda.format(quantia);
+            addMovimentação(dataAtualFormatada, descriçãoDaTransação);
 
             return quantia;
         } else if (quantia == 0) {
@@ -135,11 +140,11 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
     /* .::Serviço de Extrato::. */
     /* ------------------------ */
 
-    public Map<String, LinkedList<String>> getHistóricoDeMovimentação() {
+    public Map<String, List<String>> getHistóricoDeMovimentação() {
         return históricoDeMovimentação;
     }
 
-    public void setHistóricoDeMovimentação(Map<String, LinkedList<String>> históricoDeMovimentação) {
+    public void setHistóricoDeMovimentação(Map<String, List<String>> históricoDeMovimentação) {
         this.históricoDeMovimentação = históricoDeMovimentação;
     }
 
@@ -152,10 +157,11 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
         this.taxaDeExtrato = taxaDeExtrato;
     }
 
-//    @Override
-//    public Map<String, LinkedList<String>> getExtrato() {
-//        return getHistóricoDeMovimentação();
-//    }
+    @Override
+    public String getExtrato(int dias) {
+
+        return "...";
+    }
 
 
     /* ----------------------- */
@@ -191,5 +197,21 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
                 ", número=" + número +
                 ", saldo=" + saldo +
                 '}';
+    }
+
+
+    /* ------------------------ */
+    /* .::Métodos auxiliares::. */
+    /* ------------------------ */
+
+    public void addMovimentação(String data, String movimentação) {
+        List<String> movimentaçõesDoDia = getHistóricoDeMovimentação().get(data);
+
+        if (movimentaçõesDoDia == null) {
+            movimentaçõesDoDia = new LinkedList<>();
+        }
+
+        movimentaçõesDoDia.add(movimentação);
+        getHistóricoDeMovimentação().put(data, movimentaçõesDoDia);
     }
 }

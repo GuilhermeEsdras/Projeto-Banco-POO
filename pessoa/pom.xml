@@ -12,5 +12,15 @@
     <!-- Nome do módulo -->
     <artifactId>pessoa</artifactId>
 
+    <!-- Dependências (Módulos que contém classes e/ou funcionalidades requisitadas por este módulo) -->
+    <dependencies>
+        <dependency>
+            <groupId>com.guilherme</groupId>
+            <artifactId>usuario</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
 
 </project>

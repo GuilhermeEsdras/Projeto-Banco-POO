@@ -40,34 +40,34 @@ public class Endereço {
     // Construtor vazio
     public Endereço()
     {
-        this.setLogradouro(SEM_LOGRADOURO);
-        this.setNúmero(SEM_NÚMERO);
-        this.setComplemento(SEM_COMPLEMENTO);
-        this.setBairro(SEM_BAIRRO);
-        this.setCidade(SEM_CIDADE);
-        this.setEstado(SEM_ESTADO);
+        this.setLogradouro  ( SEM_LOGRADOURO );
+        this.setNúmero      ( SEM_NÚMERO );
+        this.setComplemento ( SEM_COMPLEMENTO );
+        this.setBairro      ( SEM_BAIRRO );
+        this.setCidade      ( SEM_CIDADE );
+        this.setEstado      ( SEM_ESTADO );
     }
 
     // Construtor sem complemento
     public Endereço(String logradouro, int número, String bairro, String cidade, String estado)
     {
-        this.setLogradouro(logradouro);
-        this.setNúmero(número);
-        this.setComplemento(SEM_COMPLEMENTO);
-        this.setBairro(bairro);
-        this.setCidade(cidade);
-        this.setEstado(estado);
+        this.setLogradouro  ( logradouro );
+        this.setNúmero      ( número );
+        this.setComplemento ( SEM_COMPLEMENTO );
+        this.setBairro      ( bairro );
+        this.setCidade      ( cidade );
+        this.setEstado      ( estado );
     }
 
     // Construtor completo
     public Endereço(String logradouro, int número, String complemento, String bairro, String cidade, String estado)
     {
-        this.setLogradouro(logradouro);
-        this.setNúmero(número);
-        this.setComplemento(complemento);
-        this.setBairro(bairro);
-        this.setCidade(cidade);
-        this.setEstado(estado);
+        this.setLogradouro  ( logradouro );
+        this.setNúmero      ( número );
+        this.setComplemento ( complemento );
+        this.setBairro      ( bairro );
+        this.setCidade      ( cidade );
+        this.setEstado      ( estado );
     }
 
 

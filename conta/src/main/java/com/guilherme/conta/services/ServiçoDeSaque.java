@@ -9,7 +9,7 @@ public interface ServiçoDeSaque {
         return (quantia * getTaxaDeSaque());
     }
 
-    default double descontaSaque(double saldo, double quantia) {
+    default double descontaTaxaDeSaque(double saldo, double quantia) {
         return (saldo - (quantia + calculaTaxaDeSaque(quantia)));
     }
 }

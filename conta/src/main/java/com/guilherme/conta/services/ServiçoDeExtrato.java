@@ -7,7 +7,7 @@ import java.util.Map;
 public interface ServiçoDeExtrato {
 
     double getTaxaDeExtrato();
-    Map<Date, LinkedList<String>> getExtrato();
+    String getExtrato(int dias);
 
     default double descontaTaxaDeExtrato(double saldo) {
         return (saldo - getTaxaDeExtrato());

@@ -51,7 +51,6 @@ public class PessoaFísica extends Pessoa {
     // Construtor vazio
     public PessoaFísica() {
         super();
-
         this.setCPF( PESSOA_SEM_CPF );
         this.setNome( PESSOA_SEM_NOME );
         this.setSobrenome( PESSOA_SEM_SOBRENOME );
@@ -61,18 +60,31 @@ public class PessoaFísica extends Pessoa {
     // Construtor que recebe apenas CPF
     public PessoaFísica(String CPF) {
         super();
-
         this.setCPF( CPF );
         this.setNome( PESSOA_SEM_NOME );
         this.setSobrenome( PESSOA_SEM_SOBRENOME );
         this.setDataDeNascimento( PESSOA_SEM_DATADENASCIMENTO );
     }
 
-    // Construtor completo
-    public PessoaFísica(Endereço endereço, String telefone, // <- P/ Construtor de Pessoa
-                        String CPF, String nome, String sobrenome, String dataDeNascimento) {
-
+    // Construtor sem informações de Usuário
+    public PessoaFísica(Endereço endereço, String telefone, // <-- Pessoa
+                        String CPF, String nome, String sobrenome, String dataDeNascimento)
+    {
         super( endereço, telefone );
+
+        this.setCPF( CPF );
+        this.setNome( nome );
+        this.setSobrenome( sobrenome );
+        this.setDataDeNascimento( dataDeNascimento );
+    }
+
+    // Construtor completo
+    public PessoaFísica(String email, String login, String senha, // <-- Usuário
+                        Endereço endereço, String telefone,       // <-- Pessoa
+                        String CPF, String nome, String sobrenome, String dataDeNascimento)
+    {
+        super(  email, login, senha,
+                endereço, telefone );
 
         this.setCPF( CPF );
         this.setNome( nome );

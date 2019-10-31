@@ -1,8 +1,12 @@
 package com.guilherme.pessoa;
 
+// Outros packages
+import com.guilherme.pessoa.exceptions.*;
+
+
 // Apache utils
-import com.guilherme.pessoa.exceptions.TelefoneInválidoException;
 import org.apache.commons.lang3.*;
+
 
 /**
  * <h1>Pessoa</h1>

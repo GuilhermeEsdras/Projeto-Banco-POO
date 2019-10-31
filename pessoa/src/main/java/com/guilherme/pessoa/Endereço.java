@@ -15,7 +15,7 @@ import org.apache.commons.lang3.EnumUtils;
  */
 public class Endereço {
 
-    // Atributos
+    /* Atributos */
     private String  logradouro;
     private int     número;
     private String  complemento;
@@ -24,7 +24,7 @@ public class Endereço {
     private Estado  estado;
 
 
-    // Atributos default
+    /* Atributos Default */
     static final String SEM_LOGRADOURO  = "--- Sem logradouro ---";
     static final int    SEM_NÚMERO      = 0;
     static final String SEM_COMPLEMENTO = "--- Sem complemento ---";

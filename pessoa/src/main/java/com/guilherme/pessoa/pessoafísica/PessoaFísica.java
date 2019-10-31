@@ -30,14 +30,14 @@ import java.text.SimpleDateFormat;
  */
 public class PessoaFísica extends Pessoa {
 
-    // Atributos
+    /* Atributos */
     private String CPF;
     private String nome;
     private String sobrenome;
     private String dataDeNascimento;
     private byte   idade;
 
-    // Atributos default
+    /* Atributos Default */
     static final String PESSOA_SEM_CPF              = "--- Sem CPF ---";
     static final String PESSOA_SEM_NOME             = "--- Sem nome ---";
     static final String PESSOA_SEM_SOBRENOME        = "--- Sem sobrenome ---";

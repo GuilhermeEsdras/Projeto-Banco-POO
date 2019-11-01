@@ -29,31 +29,51 @@ import java.util.TreeSet;
  */
 public class Agência extends PessoaJurídica implements Comparable<Agência> {
 
-    /* Atributos de um Banco */
+    /* Atributos */
     private String código;
     private Set<Funcionário> listaDeFuncionários;
     private Set<ClientePessoaFísica> listaDeClientesCPF;
     private Set<ClientePessoaJurídica> listaDeClientesCNPj;
 
 
-    // <editor-fold defaultstate="collapsed" desc=".::Construtores::.">
-    {
-        this.setListaDeFuncionários(new TreeSet<>());
-        this.setListaDeClientesCPF(new TreeSet<>());
-        this.setListaDeClientesCNPj(new TreeSet<>());
+    /* Atributos default */
+    static final String AGÊNCIA_SEM_CÓDIGO = "1234";
+
+
+    /* ------------------ */
+    /* .::Construtores::. */
+    /* ------------------ */
+
+    { // Bloco de inicialização de instância
+        this.setListaDeFuncionários ( new TreeSet<>() );
+        this.setListaDeClientesCPF  ( new TreeSet<>() );
+        this.setListaDeClientesCNPj ( new TreeSet<>() );
     }
 
-    public Agência(Endereço endereço, String telefone, // Construtor de Pessoa
-                   String CNPj, String nomeFantasia, String razãoSocial, // Construtor de PessoaJurídica
+    // Construtor simples
+    public Agência() {
+        super();
+        this.setCódigo( AGÊNCIA_SEM_CÓDIGO );
+    }
+
+    // Construtor completo
+    public Agência(String email, String login, String senha,             // <-- Usuário
+                   Endereço endereço, String telefone,                   // <-- Pessoa
+                   String CNPj, String nomeFantasia, String razãoSocial, // <-- PessoaJurídica
                    String código)
     {
-        super(endereço, telefone, CNPj, nomeFantasia, razãoSocial);
+        super(  email, login, senha,
+                endereço, telefone,
+                CNPj, nomeFantasia, razãoSocial
+        );
         this.setCódigo(código);
     }
-    // </editor-fold>
 
 
-    // <editor-fold defaultstate="collapsed" desc=".::Getters e Setters do Código::.">
+    /* ----------------------- */
+    /* .::Getters e Setters::. */
+    /* ----------------------- */
+
     public String getCódigo() {
         return código;
     }
@@ -65,10 +85,12 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
             }
         }
     }
-    // </editor-fold>
 
 
-    // <editor-fold defaultstate="collapsed" desc=".::Métodos referentes a Funcionários::.">
+    /* --------------------------------- */
+    /* .::Manipulação de Funcionários::. */
+    /* --------------------------------- */
+
     public Set<Funcionário> getListaDeFuncionários() {
         return listaDeFuncionários;
     }
@@ -84,10 +106,12 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     public int getQuantidadeDeFuncionários() {
         return this.getListaDeFuncionários().size();
     }
-    // </editor-fold>
 
 
-    // <editor-fold defaultstate="collapsed" desc=".::Métodos referentes a Clientes (PessoaFísica)::.">
+    /* -------------------------------------------- */
+    /* .::Manipulação de Clientes (PessoaFísica)::. */
+    /* -------------------------------------------- */
+
     public Set<ClientePessoaFísica> getListaDeClientesCPF() {
         return listaDeClientesCPF;
     }
@@ -103,10 +127,12 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     public int getQuantidadeDeClientesPessoaFísica() {
         return this.getListaDeClientesCPF().size();
     }
-    // </editor-fold>
 
 
-    // <editor-fold defaultstate="collapsed" desc=".::Métodos referentes a Clientes (PessoaJurídica)::.">
+    /* ---------------------------------------------- */
+    /* .::Manipulação de Clientes (PessoaJurídica)::. */
+    /* ---------------------------------------------- */
+
     public Set<ClientePessoaJurídica> getListaDeClientesCNPj() {
         return listaDeClientesCNPj;
     }
@@ -122,17 +148,22 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     public int getQuantidadeDeClientesPessoaJurídica() {
         return this.getListaDeClientesCNPj().size();
     }
-    // </editor-fold>
 
 
-    // <editor-fold defaultstate="collapsed" desc=".::Métodos referentes a Clientes (Genérico)::.">
+    /* ---------------------------------------- */
+    /* .::Manipulação de Clientes (Genérico)::. */
+    /* ---------------------------------------- */
+
     public int getQuantidadeDeClientesTotal() {
         return this.getQuantidadeDeClientesPessoaFísica() + this.getQuantidadeDeClientesPessoaJurídica();
     }
-    // </editor-fold>
 
 
-    // <editor-fold defaultstate="collapsed" desc=".::Equals e Hashcode (para evitar duplicatas em Sets)::.">
+    /* ----------------------- */
+    /* .::Equals e Hashcode::. */
+    /* ----------------------- */
+    // Principalmente utilizado como parâmetro de remoção de duplicatas em mapas e/ou conjuntos.
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -147,13 +178,31 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     public int hashCode() {
         return Objects.hashCode(getCódigo());
     }
-    // </editor-fold>
 
 
-    // <editor-fold defaultstate="collapsed" desc=".::Comparador da interface Comparable (necessário para o ordenador do TreeSet)::.">
+    /* ---------------- */
+    /* .::Comparador::. */
+    /* ---------------- */
+    // Principalmente utilizado como parâmetro de ordenação em árvores de mapas e/ou conjuntos.
+
     @Override
     public int compareTo(Agência outraAgência) {
         return getCódigo().compareTo(outraAgência.getCódigo());
     }
-    // </editor-fold>
+
+    /* -------- */
+    /* toString */
+    /* -------- */
+    // Dados do objeto em formato String.
+
+
+    @Override
+    public String toString() {
+        return "Agência{" +
+                "código='" + código + '\'' +
+                ", listaDeFuncionários=" + listaDeFuncionários +
+                ", listaDeClientesCPF=" + listaDeClientesCPF +
+                ", listaDeClientesCNPj=" + listaDeClientesCNPj +
+                '}';
+    }
 }

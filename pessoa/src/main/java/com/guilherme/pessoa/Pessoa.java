@@ -1,12 +1,15 @@
 package com.guilherme.pessoa;
 
 // Outros packages
+import com.guilherme.usuário.Usuário;
 import com.guilherme.pessoa.exceptions.*;
 
 
 // Apache utils
-import com.guilherme.usuário.Usuário;
 import org.apache.commons.lang3.*;
+
+// Java utils
+import java.util.Objects;
 
 
 /**
@@ -76,9 +79,7 @@ public abstract class Pessoa extends Usuário {
     }
 
     public void setEndereço(Endereço endereço) {
-        if (endereço != null) {
-            this.endereço = endereço;
-        }
+        this.endereço = Objects.requireNonNullElse(endereço, new Endereço());
     }
 
     public String getTelefone() {
@@ -89,8 +90,8 @@ public abstract class Pessoa extends Usuário {
         String telefoneTemp = StringUtils.defaultIfBlank(telefone, PESSOA_SEM_TELEFONE);
         if (telefoneVálido(telefoneTemp)) {
             this.telefone = "(" + telefoneTemp.substring(0, 2) + ")" + " " +
-                            telefoneTemp.substring(2, 7) + "-" +
-                            telefoneTemp.substring(7, 10);
+                                  telefoneTemp.substring(2, 7) + "-" +
+                                  telefoneTemp.substring(7, 10);
         } else if (telefoneTemp.equals(PESSOA_SEM_TELEFONE)) {
             this.telefone = telefoneTemp;
         } else {

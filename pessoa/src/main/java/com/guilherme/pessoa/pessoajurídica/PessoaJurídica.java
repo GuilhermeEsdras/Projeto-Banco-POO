@@ -10,6 +10,11 @@ import com.guilherme.pessoa.exceptions.*;
 // Apache utils
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * <h1>Pessoa Jurídica</h1>
@@ -83,15 +88,15 @@ public class PessoaJurídica extends Pessoa {
 
     public void setCNPj(String CNPj) {
         String CNPjTemp = StringUtils.defaultIfBlank(CNPj, PESSOA_JURÍDICA_SEM_CNPJ);
-        if (CNPjVálido(CNPjTemp)) {
+        if (CNPj.equals(PESSOA_JURÍDICA_SEM_CNPJ)) {
+            this.CNPj = CNPj;
+        } else if (CNPjVálido(CNPjTemp)) {
             // Formato pretendido: xx.xxx.xxx/xxxx-xx
             this.CNPj = CNPjTemp.substring(0, 2) + "." +  // xx.
                         CNPjTemp.substring(2, 5) + "." +  // xxx.
                         CNPjTemp.substring(5, 8) + "/" +  // xxx/
                         CNPjTemp.substring(8, 12) + "-" + // xxxx-
                         CNPjTemp.substring(12, 14);       // xx
-        } else if (CNPjTemp.equals(PESSOA_JURÍDICA_SEM_CNPJ)) {
-            this.CNPj = CNPj;
         } else {
             throw new CNPjInválidoException();
         }
@@ -102,9 +107,11 @@ public class PessoaJurídica extends Pessoa {
     }
 
     public void setNomeFantasia(String nomeFantasia) {
-        if (nomeFantasia.length() > 0) {
-            this.nomeFantasia = nomeFantasia;
-        }
+        this.nomeFantasia = Optional.ofNullable( nomeFantasia )
+                                    .map( String::strip )
+                                    .filter( Predicate.not( String::isBlank ))
+                                    .filter( Predicate.not( String::isEmpty ))
+                                    .orElse( this.nomeFantasia );
     }
 
     public String getRazãoSocial() {
@@ -112,9 +119,11 @@ public class PessoaJurídica extends Pessoa {
     }
 
     public void setRazãoSocial(String razãoSocial) {
-        if (razãoSocial.length() > 0) {
-            this.razãoSocial = razãoSocial;
-        }
+        this.razãoSocial =  Optional.ofNullable( razãoSocial )
+                                    .map( String::strip )
+                                    .filter( Predicate.not( String::isBlank ))
+                                    .filter( Predicate.not( String::isEmpty ))
+                                    .orElse( this.razãoSocial );
     }
 
 
@@ -141,12 +150,18 @@ public class PessoaJurídica extends Pessoa {
      * <h1>CNPj Válido</h1>
      *
      * <p>Verifica se um determinado CNPj é válido.</p>
-     * <p>Analisa se a quantidade de números está correta e se não são todos iguais.</p>
+     * <p>Analisa se a quantidade de números está correta, se não possui algum caractere diferente além de números
+     * e se não são todos iguais.</p>
      *
      * @param CNPj Uma String contendo apenas números representado o CNPj.
      * @return Valor booleano. True se for, False caso contrário.
      */
     private boolean CNPjVálido(String CNPj) {
-        return (CNPj.length() == 14) && (CNPj.replaceAll(String.valueOf(CNPj.charAt(0)), "").length() > 0);
+        // Não deve possuir alguma letra ou caractere especial além de números
+        Pattern apenasNúmeros = Pattern.compile("[0-9]");
+        Matcher possuiApenasNúmeros = apenasNúmeros.matcher(CNPj);
+        return  ( CNPj.length() == 14 ) &&
+                ( CNPj.replaceAll(String.valueOf(CNPj.charAt(0)), "").length() > 0 ) &&
+                ( possuiApenasNúmeros.find() );
     }
 }

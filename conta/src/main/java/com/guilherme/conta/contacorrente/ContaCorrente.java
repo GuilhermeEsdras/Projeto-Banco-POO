@@ -5,9 +5,6 @@ import com.guilherme.conta.services.ServiçoDeEmpréstimo;
 import com.guilherme.pessoa.Pessoa;
 
 import java.security.InvalidParameterException;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.Map;
 
 public class ContaCorrente extends Conta implements ServiçoDeEmpréstimo {
 
@@ -23,7 +20,12 @@ public class ContaCorrente extends Conta implements ServiçoDeEmpréstimo {
     /* ------------------ */
 
     { // Bloco de inicialização de instância
-        this.setLimite( 1000D );
+        this.setLimite      ( 1000D );
+        this.setTaxaDeJuros ( 0.02 ); // Juros de 2.0% do valor do Empréstimo no Pagamento
+    }
+
+    public ContaCorrente(Pessoa titular) {
+        super(titular);
     }
 
     public ContaCorrente(Pessoa titular, double saldo, // <-- Conta
@@ -46,6 +48,10 @@ public class ContaCorrente extends Conta implements ServiçoDeEmpréstimo {
         this.limite = limite;
     }
 
+
+    /* --------------------------- */
+    /* .::Serviço de Empréstimo::. */
+    /* --------------------------- */
 
     @Override
     public double getTaxaDeJuros() {

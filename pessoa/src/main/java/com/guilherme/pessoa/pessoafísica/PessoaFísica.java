@@ -9,13 +9,11 @@ import com.guilherme.pessoa.exceptions.*;
 import org.apache.commons.lang3.*;
 
 // Java utils
-import java.util.Date;
-import java.util.Locale;
-import java.util.Objects;
-import java.util.Calendar;
+import java.util.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.function.Predicate;
 
 
 /**
@@ -121,8 +119,12 @@ public class PessoaFísica extends Pessoa {
     }
 
     public void setNome(String nome) {
-        if ((nome.length() > 0) && !(StringUtils.isNumeric(nome))) {
-            this.nome = nome;
+        if ( !(StringUtils.isNumeric(nome)) ) {
+            this.nome = Optional.ofNullable( nome )
+                                .map( String::strip )
+                                .filter( Predicate.not( String::isEmpty ))
+                                .filter( Predicate.not( String::isBlank ))
+                                .orElse( this.nome );
         }
     }
 
@@ -131,8 +133,12 @@ public class PessoaFísica extends Pessoa {
     }
 
     public void setSobrenome(String sobrenome) {
-        if ((sobrenome.length() > 0) && !(StringUtils.isNumeric(sobrenome))) {
-            this.sobrenome = sobrenome;
+        if ( !(StringUtils.isNumeric(sobrenome)) ) {
+            this.sobrenome = Optional.ofNullable( nome )
+                                     .map( String::strip )
+                                     .filter( Predicate.not( String::isEmpty ))
+                                     .filter( Predicate.not( String::isBlank ))
+                                     .orElse( this.sobrenome );
         }
     }
 
@@ -175,9 +181,7 @@ public class PessoaFísica extends Pessoa {
     }
 
     private void setIdade(byte idade) {
-        if (idade >= 0) {
-            this.idade = idade;
-        }
+        this.idade = idade >= 0 ? idade : this.idade;
     }
 
 

@@ -1,9 +1,14 @@
 package com.guilherme.conta.services;
 
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.Map;
-
+/**
+ * <h1>Serviço de Extrato</h1>
+ *
+ * <p>Interface responsável por calcular as taxas, cobranças e demais métodos ligados ao Serviço de Extrato do Banco.</p>
+ *
+ * @since 1.0
+ * @author Guilherme Esdras
+ * @version 1.0
+ */
 public interface ServiçoDeExtrato {
 
     double getTaxaDeExtrato();

@@ -9,7 +9,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência, ServiçoDeExtrato {
+public abstract class Conta implements ServiçoDeSaque, ServiçoDeDepósito, ServiçoDeTransferência, ServiçoDeExtrato {
 
     /* Atributos */
     private Pessoa titular;
@@ -23,9 +23,18 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
      */
     private Map<String, List<String>> históricoDeMovimentação;
 
+    /* Atributos default */
+    static final double SALDO_INICIAL = 100;
+
+
+    /* Atributos auxiliares */
+    private Locale local = new Locale("pt", "BR");
+    private NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(local);
+    private DateFormat formatadorDeData = new SimpleDateFormat("dd/MM/yyyy");
+
 
     /* Constantes */
-    private static int ULTIMO_NUMERO = 111111; // Constante auxiliar para o número da conta
+    static int ULTIMO_NUMERO = 123456; // Constante auxiliar para o número da conta
 
 
     /* Taxas */
@@ -43,11 +52,19 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
 
         this.setHistóricoDeMovimentação(new LinkedHashMap<>());
 
-        this.setTaxaDeSaque(1.0);
-        this.setTaxaDeTransferência(1.0);
-        this.setTaxaDeExtrato(1.0);
+        // Taxas
+        this.setTaxaDeSaque         ( 0.01 ); // Desconta 1.0% do valor do Saque no Saldo do Cliente
+        this.setTaxaDeTransferência ( 0.02 ); // Desconta 2.0% do valor da Transferência no Saldo do Cliente
+        this.setTaxaDeExtrato       ( 0.50 ); // Desconta R$ 0,25 por Extrato no Saldo do Cliente
     }
 
+    // Construtor apenas com titular
+    public Conta(Pessoa titular) {
+        this.setTitular( titular );
+        this.setSaldo( SALDO_INICIAL );
+    }
+
+    // Construtor completo
     public Conta(Pessoa titular, double saldo) {
         this.setTitular(titular);
         this.setSaldo(saldo);
@@ -79,7 +96,9 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
     }
 
     public void setSaldo(double saldo) {
-        this.saldo = saldo;
+        if (saldo > 0) {
+            this.saldo = saldo;
+        }
     }
 
 
@@ -100,17 +119,7 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
     public double sacar(double quantia) {
         if ( (quantia > 0) && ( this.getSaldo() > (quantia + calculaTaxaDeSaque(quantia)) ) ) {
             this.setSaldo( descontaTaxaDeSaque(this.getSaldo(), quantia) );
-
-            Locale local = new Locale("pt", "BR");
-            DateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-            NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(local);
-
-            Date dataAtual = Calendar.getInstance().getTime();
-            String dataAtualFormatada = formatador.format(dataAtual);
-
-            String descriçãoDaTransação = "Saque | No valor de: " + formatoMoeda.format(quantia);
-            addMovimentação(dataAtualFormatada, descriçãoDaTransação);
-
+            addMovimentação( "Saque | No valor de " + formatoMoeda.format(quantia) );
             return quantia;
         } else if (quantia == 0) {
             throw new IgualAZeroException();
@@ -122,9 +131,23 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
     }
 
 
+    /* ------------------------- */
+    /* .::Serviço de Depósito::. */
+    /* ------------------------- */
+
+    @Override
+    public void depositar(double quantia) {
+        if (quantia > 0) {
+            this.setSaldo(getSaldo() + quantia);
+            addMovimentação( "Depósito | No valor de " + formatoMoeda.format(quantia) );
+        }
+    }
+
+
     /* ------------------------------ */
     /* .::Serviço de Transferência::. */
     /* ------------------------------ */
+    // Invativo por enquanto...
 
     @Override
     public double getTaxaDeTransferência() {
@@ -135,10 +158,19 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
         this.taxaDeTransferência = taxaDeTransferência;
     }
 
+    @Override
+    public double transferir(double quantia, int número) {
+
+
+        addMovimentação( "Transferência para Conta " + " | No valor de " + formatoMoeda.format(quantia) );
+        return quantia;
+    }
+
 
     /* ------------------------ */
     /* .::Serviço de Extrato::. */
     /* ------------------------ */
+    // Invativo por enquanto...
 
     public Map<String, List<String>> getHistóricoDeMovimentação() {
         return históricoDeMovimentação;
@@ -159,8 +191,13 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
 
     @Override
     public String getExtrato(int dias) {
+        if (this.getSaldo() > getTaxaDeExtrato()) {
 
-        return "...";
+            return "...";
+        } else {
+            throw new SaldoInsuficienteException();
+        }
+
     }
 
 
@@ -204,7 +241,15 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeTransferência
     /* .::Métodos auxiliares::. */
     /* ------------------------ */
 
-    public void addMovimentação(String data, String movimentação) {
+    /**
+     * <h1>Add Movimentação</h1>
+     *
+     * <p>Acrescenta uma movimentação em uma data no Histórico de Movimentação da Conta.</p>
+     *
+     * @param movimentação Descrição da movimentação.
+     */
+    private void addMovimentação(String movimentação) {
+        String data = formatadorDeData.format(Calendar.getInstance().getTime());
         List<String> movimentaçõesDoDia = getHistóricoDeMovimentação().get(data);
 
         if (movimentaçõesDoDia == null) {

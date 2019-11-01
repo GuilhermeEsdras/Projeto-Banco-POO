@@ -3,31 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="97eff0b7-0000-4dd1-bfd6-9ae04316cda3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoBancoPOO.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoBancoPOO.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agencia/agencia.iml" beforeDir="false" afterPath="$PROJECT_DIR$/agencia/agencia.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banco/banco.iml" beforeDir="false" afterPath="$PROJECT_DIR$/banco/banco.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banco/src/main/java/com/guilherme/banco/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/banco/src/main/java/com/guilherme/banco/Banco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/cli.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cli/cli.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/cliente.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/cliente.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conta/conta.iml" beforeDir="false" afterPath="$PROJECT_DIR$/conta/conta.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agencia/src/main/java/com/guilherme/agência/Agência.java" beforeDir="false" afterPath="$PROJECT_DIR$/agencia/src/main/java/com/guilherme/agência/Agência.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conta/src/main/java/com/guilherme/conta/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/conta/src/main/java/com/guilherme/conta/Conta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conta/src/main/java/com/guilherme/conta/contacorrente/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/conta/src/main/java/com/guilherme/conta/contacorrente/ContaCorrente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conta/src/main/java/com/guilherme/conta/services/ServiçoDeEmpréstimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/conta/src/main/java/com/guilherme/conta/services/ServiçoDeEmpréstimo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conta/src/main/java/com/guilherme/conta/services/ServiçoDeExtrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/conta/src/main/java/com/guilherme/conta/services/ServiçoDeExtrato.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conta/src/main/java/com/guilherme/conta/services/ServiçoDeSaque.java" beforeDir="false" afterPath="$PROJECT_DIR$/conta/src/main/java/com/guilherme/conta/services/ServiçoDeSaque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funcionario/funcionario.iml" beforeDir="false" afterPath="$PROJECT_DIR$/funcionario/funcionario.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/Funcionário.java" beforeDir="false" afterPath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/Funcionário.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/gui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gui/gui.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pessoa/pessoa.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/pessoa.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pessoa/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/Endereço.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/Endereço.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conta/src/main/java/com/guilherme/conta/services/ServiçoDeTransferência.java" beforeDir="false" afterPath="$PROJECT_DIR$/conta/src/main/java/com/guilherme/conta/services/ServiçoDeTransferência.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/Pessoa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/pessoafísica/PessoaFísica.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/pessoafísica/PessoaFísica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/pessoajurídica/PessoaJurídica.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/pessoajurídica/PessoaJurídica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pessoa/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuario/src/main/java/com/guilherme/usuário/Usuário.java" beforeDir="false" afterPath="$PROJECT_DIR$/usuario/src/main/java/com/guilherme/usuário/Usuário.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuario/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/usuario/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuario/usuario.iml" beforeDir="false" afterPath="$PROJECT_DIR$/usuario/usuario.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,8 +29,9 @@
         <option value="Enum" />
         <option value="module-info" />
         <option value="package-info" />
-        <option value="JUnit4 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -80,11 +66,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.guilherme.conta" />
+      <recent name="com.guilherme.conta.contacorrente" />
       <recent name="com.guilherme.pessoa.pessoafísica" />
       <recent name="com.guilherme.pessoa.pessoajurídica" />
       <recent name="com.guilherme.pessoa" />
-      <recent name="com.guilherme.banco" />
-      <recent name="com.guilherme.agência" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -102,13 +88,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PessoaFísicaTest">
-    <configuration name="Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.guilherme.usuário.tests.Tests" />
-      <module name="usuario" />
+  <component name="RunManager" selected="JUnit.ContaTest">
+    <configuration name="Tests (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.guilherme.conta.tests.Tests" />
+      <module name="conta" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.guilherme.usuário.tests.*" />
+          <option name="PATTERN" value="com.guilherme.conta.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,17 +102,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EndereçoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pessoa" />
+    <configuration name="ContaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="conta" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.guilherme.pessoa.*" />
+          <option name="PATTERN" value="com.guilherme.conta.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.guilherme.pessoa" />
-      <option name="MAIN_CLASS_NAME" value="com.guilherme.pessoa.EndereçoTest" />
+      <option name="PACKAGE_NAME" value="com.guilherme.conta" />
+      <option name="MAIN_CLASS_NAME" value="com.guilherme.conta.ContaTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContaTest.testGetSetTitular" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="conta" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.guilherme.conta.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.guilherme.conta" />
+      <option name="MAIN_CLASS_NAME" value="com.guilherme.conta.ContaTest" />
+      <option name="METHOD_NAME" value="testGetSetTitular" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContaTest.testServiçoDeSaque" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="conta" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.guilherme.conta.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.guilherme.conta" />
+      <option name="MAIN_CLASS_NAME" value="com.guilherme.conta.ContaTest" />
+      <option name="METHOD_NAME" value="testServiçoDeSaque" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -146,44 +164,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PessoaFísicaTest.testSetGetDataDeNascimento_e_Idade" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pessoa" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.guilherme.pessoa.pessoafísica.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.guilherme.pessoa.pessoafísica" />
-      <option name="MAIN_CLASS_NAME" value="com.guilherme.pessoa.pessoafísica.PessoaFísicaTest" />
-      <option name="METHOD_NAME" value="testSetGetDataDeNascimento_e_Idade" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PessoaJurídicaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pessoa" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.guilherme.pessoa.pessoajurídica.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.guilherme.pessoa.pessoajurídica" />
-      <option name="MAIN_CLASS_NAME" value="com.guilherme.pessoa.pessoajurídica.PessoaJurídicaTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ContaTest" />
+        <item itemvalue="JUnit.ContaTest.testServiçoDeSaque" />
+        <item itemvalue="JUnit.ContaTest.testGetSetTitular" />
+        <item itemvalue="Application.Tests (1)" />
         <item itemvalue="JUnit.PessoaFísicaTest" />
-        <item itemvalue="JUnit.PessoaJurídicaTest" />
-        <item itemvalue="JUnit.EndereçoTest" />
-        <item itemvalue="Application.Tests" />
-        <item itemvalue="JUnit.PessoaFísicaTest.testSetGetDataDeNascimento_e_Idade" />
       </list>
     </recent_temporary>
   </component>
@@ -207,6 +194,8 @@
       <workItem from="1572463312990" duration="10358000" />
       <workItem from="1572479578230" duration="12774000" />
       <workItem from="1572524012668" duration="11466000" />
+      <workItem from="1572563504955" duration="9796000" />
+      <workItem from="1572611431084" duration="5157000" />
     </task>
     <task id="LOCAL-00001" summary="Módulos criados">
       <created>1572094180201</created>

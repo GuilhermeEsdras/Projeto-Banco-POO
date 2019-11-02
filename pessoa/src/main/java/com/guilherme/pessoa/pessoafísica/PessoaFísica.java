@@ -134,7 +134,7 @@ public class PessoaFísica extends Pessoa {
 
     public void setSobrenome(String sobrenome) {
         if ( !(StringUtils.isNumeric(sobrenome)) ) {
-            this.sobrenome = Optional.ofNullable( nome )
+            this.sobrenome = Optional.ofNullable( sobrenome )
                                      .map( String::strip )
                                      .filter( Predicate.not( String::isEmpty ))
                                      .filter( Predicate.not( String::isBlank ))
@@ -185,6 +185,29 @@ public class PessoaFísica extends Pessoa {
     }
 
 
+    /* ----------------------- */
+    /* .::Equals e Hashcode::. */
+    /* ----------------------- */
+    // Principalmente utilizado como parâmetro de remoção de duplicatas em mapas e/ou conjuntos.
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        PessoaFísica that = (PessoaFísica) o;
+
+        return getCPF().equals(that.getCPF());
+    }
+
+    @Override
+    public int hashCode() {
+        return getCPF().hashCode();
+    }
+
+
+
+
     /* -------- */
     /* toString */
     /* -------- */
@@ -210,13 +233,17 @@ public class PessoaFísica extends Pessoa {
      * <h1>CPF Válido</h1>
      *
      * <p>Verifica se um determinado CPF é válido.</p>
-     * <p>Analisa se a quantidade de números está correta e se não são todos iguais.</p>
+     *
+     * <p>Analisa se a quantidade de números está correta, se não possui algum caractere diferente além de números
+     * e se não são todos iguais.</p>
      *
      * @param CPF Uma String contendo apenas números representando um CPF.
      * @return Valor booleano. True se for, False caso contrário.
      */
     private boolean CPFVálido(String CPF) {
-        return (CPF.length() == 11) && (CPF.replaceAll(String.valueOf(CPF.charAt(0)), "").length() > 0);
+        return  ( CPF.length() == 11 ) &&
+                ( CPF.replaceAll(String.valueOf(CPF.charAt(0)), "").length() > 0 ) &&
+                ( stringNuméricaVálida(CPF) );
     }
 
 

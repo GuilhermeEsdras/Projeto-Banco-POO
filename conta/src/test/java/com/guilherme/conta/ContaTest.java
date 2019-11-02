@@ -1,10 +1,10 @@
 package com.guilherme.conta;
 
 import com.guilherme.conta.contacorrente.ContaCorrente;
-
 import com.guilherme.conta.exceptions.QuantiaNegativaException;
 import com.guilherme.pessoa.pessoafísica.PessoaFísica;
 import com.guilherme.pessoa.pessoajurídica.PessoaJurídica;
+
 import org.junit.*;
 
 public class ContaTest {

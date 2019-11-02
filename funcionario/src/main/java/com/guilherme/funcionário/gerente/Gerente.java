@@ -7,8 +7,8 @@ import java.util.Date;
 
 public class Gerente extends Funcionário {
     public Gerente(Endereço endereço, String telefone,
-                   String CPF, String nome, String sobrenome, Date dataDeNascimento,
-                   double salárioBase) {
-        super(endereço, telefone, CPF, nome, sobrenome, dataDeNascimento, salárioBase);
+                   String CPF, String nome, String sobrenome, String dataDeNascimento,
+                   int ID, double salárioBase) {
+        super(endereço, telefone, CPF, nome, sobrenome, dataDeNascimento, ID, salárioBase);
     }
 }

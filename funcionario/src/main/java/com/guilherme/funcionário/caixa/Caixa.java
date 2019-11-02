@@ -13,11 +13,21 @@ public class Caixa extends Funcionário {
         this.setNumHorasExtra(0);
     }
 
+    public Caixa(String CPF) {
+        super(CPF);
+        this.setNumHorasExtra(0);
+    }
+
+    public Caixa(String CPF, int ID) {
+        super(CPF, ID);
+        this.setNumHorasExtra(0);
+    }
+
     public Caixa(Endereço endereço, String telefone, // Construtor Pessoa
                  String CPF, String nome, String sobrenome, String dataDeNascimento, // Construtor PessoaFísica
-                 double salárioBase, // Construtor Funcionário
+                 int ID, double salárioBase, // Construtor Funcionário
                  int numHorasExtra) {
-        super(endereço, telefone, CPF, nome, sobrenome, dataDeNascimento, salárioBase);
+        super(endereço, telefone, CPF, nome, sobrenome, dataDeNascimento, ID, salárioBase);
         this.setNumHorasExtra(numHorasExtra);
     }
 

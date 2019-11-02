@@ -2,11 +2,15 @@ package com.guilherme.usuário;
 
 // Outros packages
 import com.guilherme.usuário.exceptions.EmailInválidoException;
+import com.guilherme.usuário.exceptions.LoginInválidoException;
+import com.guilherme.usuário.exceptions.SenhaInválidaException;
 
 
 // Email Validator
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class Usuário {
@@ -24,6 +28,12 @@ public class Usuário {
     }
 
 
+    /* Auxiliares */
+    private Pattern letrasMinúsculas = Pattern.compile("[a-z]");
+    private Pattern letrasMaiúsculas = Pattern.compile("[A-Z]");
+    private Pattern dígitos = Pattern.compile("[0-9]");
+    private Pattern special = Pattern.compile ("[!@#$%&*()_.,`´¨+=|<>?{}\\[\\]~-]");
+
     /* Para fins de Teste */
     private static final String EMAIL_TEST = "teste@test.com";
     public static String getEmailTest() {
@@ -39,7 +49,7 @@ public class Usuário {
     /* .::Construtores::. */
     /* ------------------ */
 
-    // Construtor vazio (geralmente para fins de testes)
+    // Construtor vazio (geralmente para fins de tests)
     public Usuário() {
         this.setEmail( EMAIL_TEST );
         this.setLogin( LOGIN_TEST );
@@ -82,7 +92,11 @@ public class Usuário {
     }
 
     public void setLogin(String login) {
-        this.login = login;
+        if (!possuiCaractereEspecial(login)) {
+            this.login = login;
+        } else {
+            throw new LoginInválidoException();
+        }
     }
 
     public String getSenha() {
@@ -90,7 +104,11 @@ public class Usuário {
     }
 
     public void setSenha(String senha) {
-        this.senha = senha;
+        if (senha.length() >= 6) {
+            this.senha = senha;
+        } else {
+            throw new SenhaInválidaException();
+        }
     }
 
     /* ------------------------ */
@@ -114,5 +132,37 @@ public class Usuário {
             válido = false;
         }
         return válido;
+    }
+
+
+    /**
+     * <h1>String Numérica Válida</h1>
+     *
+     * <p>Verifica se uma determinada String passada como argumento possui apenas caracteres numéricos, sem letras ou
+     * caracteres especiais.</p>
+     *
+     * @param string String a ser verificada.
+     * @return Valor booleano.
+     */
+    public boolean stringNuméricaVálida(String string) {
+        Matcher possuiLetrasMaiúsculas  = letrasMaiúsculas.matcher(string);
+        Matcher possuiLetrasMinúsculas  = letrasMinúsculas.matcher(string);
+        Matcher possuiCaractereEspecial = special.matcher(string);
+        Matcher possuiDígito = dígitos.matcher(string);
+        return !( possuiCaractereEspecial.find() && possuiLetrasMaiúsculas.find() && possuiLetrasMinúsculas.find() ) &&
+                ( possuiDígito.find() );
+    }
+
+    /**
+     * <h1>Possui Caractere Especial?</h1>
+     *
+     * <p>Verifica se uma determinada String passada como argumento possui algum caractere especial.</p>
+     *
+     * @param string String a ser verificada.
+     * @return Valor booleano.
+     */
+    public boolean possuiCaractereEspecial(String string) {
+        Matcher possuiCaracteresEspeciais = special.matcher(string);
+        return possuiCaracteresEspeciais.find();
     }
 }

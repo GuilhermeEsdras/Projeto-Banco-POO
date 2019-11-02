@@ -2,6 +2,7 @@ package com.guilherme.banco;
 
 // Outros módulos
 import com.guilherme.agência.Agência;
+import com.guilherme.banco.exceptions.CódigoBancoInválidoException;
 import com.guilherme.pessoa.Endereço;
 import com.guilherme.pessoa.pessoajurídica.PessoaJurídica;
 
@@ -9,9 +10,9 @@ import com.guilherme.pessoa.pessoajurídica.PessoaJurídica;
 import org.apache.commons.lang3.*;
 
 // Java utils
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-import java.util.TreeSet;
 
 
 /**
@@ -38,7 +39,7 @@ public class Banco extends PessoaJurídica implements Comparable<Banco> {
     /* ------------------ */
 
     { // Bloco de inicialização de instância
-        this.setListaDeAgências(new TreeSet<>());
+        this.setListaDeAgências(new HashSet<>());
     }
 
     // Construtor vazio
@@ -87,10 +88,10 @@ public class Banco extends PessoaJurídica implements Comparable<Banco> {
     }
 
     public void setCódigo(String código) {
-        if (StringUtils.isNumeric(código)) {
-            if (código.length() > 0 && código.length() <= 3) {
-                this.código = código;
-            }
+        if (StringUtils.isNumeric(código) && (código.length() > 0 && código.length() <= 3) ) {
+            this.código = código;
+        } else {
+            throw new CódigoBancoInválidoException();
         }
     }
 
@@ -107,7 +108,9 @@ public class Banco extends PessoaJurídica implements Comparable<Banco> {
     /* .::Manipulação de Agências::. */
     /* ----------------------------- */
 
-
+    public boolean cadastrarAgência(Agência agência) {
+        return listaDeAgências.add( agência );
+    }
 
 
     /* ----------------------- */

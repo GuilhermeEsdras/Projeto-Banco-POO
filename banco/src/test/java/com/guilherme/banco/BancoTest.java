@@ -12,6 +12,12 @@ public class BancoTest {
 
     // Agência agência = new Agência(new Endereço(), "83985854545", "");
 
+
+    @Test
+    public void testGetSetCódigoBanco() {
+
+    }
+
     @Test
     public void testDeveCadastrarAgência() {
 

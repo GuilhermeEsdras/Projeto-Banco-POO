@@ -12,8 +12,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Optional;
 import java.util.function.Predicate;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 
 /**
@@ -50,6 +48,15 @@ public class PessoaJurídica extends Pessoa {
         super();
 
         this.setCNPj( PESSOA_JURÍDICA_SEM_CNPJ );
+        this.setNomeFantasia( PESSOA_JURÍDICA_SEM_NOMEFANTASIA );
+        this.setRazãoSocial( PESSOA_JURÍDICA_SEM_RAZÃOSOCIAL );
+    }
+
+    // Construtor que recebe apenas CNPj
+    public PessoaJurídica(String CNPj) {
+        super();
+
+        this.setCNPj( CNPj );
         this.setNomeFantasia( PESSOA_JURÍDICA_SEM_NOMEFANTASIA );
         this.setRazãoSocial( PESSOA_JURÍDICA_SEM_RAZÃOSOCIAL );
     }
@@ -127,6 +134,27 @@ public class PessoaJurídica extends Pessoa {
     }
 
 
+    /* ----------------------- */
+    /* .::Equals e Hashcode::. */
+    /* ----------------------- */
+    // Principalmente utilizado como parâmetro de remoção de duplicatas em mapas e/ou conjuntos.
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        PessoaJurídica that = (PessoaJurídica) o;
+
+        return getCNPj().equals(that.getCNPj());
+    }
+
+    @Override
+    public int hashCode() {
+        return getCNPj().hashCode();
+    }
+
+
     /* -------- */
     /* toString */
     /* -------- */
@@ -157,11 +185,8 @@ public class PessoaJurídica extends Pessoa {
      * @return Valor booleano. True se for, False caso contrário.
      */
     private boolean CNPjVálido(String CNPj) {
-        // Não deve possuir alguma letra ou caractere especial além de números
-        Pattern apenasNúmeros = Pattern.compile("[0-9]");
-        Matcher possuiApenasNúmeros = apenasNúmeros.matcher(CNPj);
         return  ( CNPj.length() == 14 ) &&
                 ( CNPj.replaceAll(String.valueOf(CNPj.charAt(0)), "").length() > 0 ) &&
-                ( possuiApenasNúmeros.find() );
+                ( stringNuméricaVálida(CNPj) );
     }
 }

@@ -9,11 +9,11 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public abstract class Conta implements ServiçoDeSaque, ServiçoDeDepósito, ServiçoDeTransferência, ServiçoDeExtrato {
+public abstract class Conta implements Comparable<Conta>, ServiçoDeSaque, ServiçoDeDepósito, ServiçoDeTransferência, ServiçoDeExtrato {
 
     /* Atributos */
     private Pessoa titular;
-    private int    número;
+    private String número;
     private double saldo;
 
     /**
@@ -83,12 +83,12 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeDepósito, Ser
         this.titular = titular;
     }
 
-    public int getNúmero() {
+    public String getNúmero() {
         return número;
     }
 
     public void setNúmero(int número) {
-        this.número = número;
+        this.número = String.valueOf(número);
     }
 
     public double getSaldo() {
@@ -213,12 +213,23 @@ public abstract class Conta implements ServiçoDeSaque, ServiçoDeDepósito, Ser
 
         Conta conta = (Conta) o;
 
-        return getNúmero() == conta.getNúmero();
+        return getNúmero().equals(conta.getNúmero());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(this.getNúmero());
+        return Objects.hashCode(getNúmero());
+    }
+
+
+    /* ---------------- */
+    /* .::Comparador::. */
+    /* ---------------- */
+    // Principalmente utilizado como parâmetro de ordenação em árvores de mapas e/ou de conjuntos.
+
+    @Override
+    public int compareTo(Conta outraConta) {
+        return getNúmero().compareTo(outraConta.getNúmero());
     }
 
 

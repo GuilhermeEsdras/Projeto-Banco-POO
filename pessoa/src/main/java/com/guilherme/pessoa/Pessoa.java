@@ -30,7 +30,7 @@ public abstract class Pessoa extends Usuário {
 
 
     /* Atributos Default */
-    private static final String PESSOA_SEM_TELEFONE = "--- Sem telefone ---";
+    static final String PESSOA_SEM_TELEFONE = "--- Sem telefone ---";
 
 
     /* ------------------ */
@@ -44,7 +44,7 @@ public abstract class Pessoa extends Usuário {
         this.setEndereço( new Endereço() );
     }
 
-    // Construtor de Pessoa sem informações de Usuário (para testes)
+    // Construtor de Pessoa sem informações de Usuário (para tests)
     public Pessoa(Endereço endereço, String telefone) {
         super();
         this.setEndereço( endereço );
@@ -89,9 +89,10 @@ public abstract class Pessoa extends Usuário {
     public void setTelefone(String telefone) {
         String telefoneTemp = StringUtils.defaultIfBlank(telefone, PESSOA_SEM_TELEFONE);
         if (telefoneVálido(telefoneTemp)) {
-            this.telefone = "(" + telefoneTemp.substring(0, 2) + ")" + " " +
-                                  telefoneTemp.substring(2, 7) + "-" +
-                                  telefoneTemp.substring(7, 10);
+            // Formato pretendido: (xx) xxxxx-xxxx
+            this.telefone = "(" + telefoneTemp.substring(0, 2) + ")" +
+                            " " + telefoneTemp.substring(2, 7) + "-" +
+                                  telefoneTemp.substring(7, 11);
         } else if (telefoneTemp.equals(PESSOA_SEM_TELEFONE)) {
             this.telefone = telefoneTemp;
         } else {
@@ -127,8 +128,8 @@ public abstract class Pessoa extends Usuário {
      * @return Valor booleano. True se for, False caso contrário.
      */
     private boolean telefoneVálido(String telefone) {
-        return  (StringUtils.isNumeric(telefone)) &&
-                (telefone.length() == 10) &&
-                (telefone.replaceAll(String.valueOf(telefone.charAt(0)), "").length() > 0);
+        return  ( stringNuméricaVálida(telefone) ) &&
+                ( telefone.length() == 11 ) &&
+                ( telefone.replaceAll(String.valueOf(telefone.charAt(0)), "").length() > 0 );
     }
 }

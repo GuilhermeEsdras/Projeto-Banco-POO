@@ -1,6 +1,7 @@
 package com.guilherme.agência;
 
 // Outros módulos
+import com.guilherme.agência.exceptions.CódigoAgênciaInválidoException;
 import com.guilherme.cliente.ClientePessoaFísica;
 import com.guilherme.cliente.ClientePessoaJurídica;
 import com.guilherme.funcionário.Funcionário;
@@ -11,9 +12,7 @@ import com.guilherme.pessoa.pessoajurídica.PessoaJurídica;
 import org.apache.commons.lang3.*;
 
 // Java utils
-import java.util.Objects;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * <h1>Agência</h1>
@@ -32,12 +31,12 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     /* Atributos */
     private String código;
     private Set<Funcionário> listaDeFuncionários;
-    private Set<ClientePessoaFísica> listaDeClientesCPF;
-    private Set<ClientePessoaJurídica> listaDeClientesCNPj;
+    private Set<ClientePessoaFísica> listaDeClientesPessoaFísica;
+    private Set<ClientePessoaJurídica> listaDeClientesPessoaJurídica;
 
 
     /* Atributos default */
-    static final String AGÊNCIA_SEM_CÓDIGO = "1234";
+    static final String AGÊNCIA_SEM_CÓDIGO = "0000";
 
 
     /* ------------------ */
@@ -45,9 +44,9 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     /* ------------------ */
 
     { // Bloco de inicialização de instância
-        this.setListaDeFuncionários ( new TreeSet<>() );
-        this.setListaDeClientesCPF  ( new TreeSet<>() );
-        this.setListaDeClientesCNPj ( new TreeSet<>() );
+        this.setListaDeFuncionários ( new HashSet<>() );
+        this.setListaDeClientesPessoaFísica( new HashSet<>() );
+        this.setListaDeClientesPessoaJurídica( new HashSet<>() );
     }
 
     // Construtor simples
@@ -79,10 +78,10 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     }
 
     public void setCódigo(String código) {
-        if (StringUtils.isNumeric(código)) {
-            if (código.length() > 0 && código.length() <= 4) {
-                this.código = código;
-            }
+        if (StringUtils.isNumeric(código) && (código.length() > 0 && código.length() <= 4) ) {
+            this.código = código;
+        } else {
+            throw new CódigoAgênciaInválidoException();
         }
     }
 
@@ -100,7 +99,11 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     }
 
     public boolean cadastrarFuncionário(Funcionário funcionário) {
-        return true;
+        return getListaDeFuncionários().add( funcionário );
+    }
+
+    public boolean removerFuncionário(Funcionário funcionário) {
+        return getListaDeFuncionários().remove( funcionário );
     }
 
     public int getQuantidadeDeFuncionários() {
@@ -112,42 +115,67 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     /* .::Manipulação de Clientes (PessoaFísica)::. */
     /* -------------------------------------------- */
 
-    public Set<ClientePessoaFísica> getListaDeClientesCPF() {
-        return listaDeClientesCPF;
+    public Set<ClientePessoaFísica> getListaDeClientesPessoaFísica() {
+        return listaDeClientesPessoaFísica;
     }
 
-    public void setListaDeClientesCPF(Set<ClientePessoaFísica> listaDeClientesCPF) {
-        this.listaDeClientesCPF = listaDeClientesCPF;
+    public void setListaDeClientesPessoaFísica(Set<ClientePessoaFísica> listaDeClientesPessoaFísica) {
+        this.listaDeClientesPessoaFísica = listaDeClientesPessoaFísica;
     }
 
     public boolean cadastrarClientePessoaFísica(ClientePessoaFísica cliente) {
-        return true;
+        return getListaDeClientesPessoaFísica().add( cliente );
+    }
+
+    public boolean removerClientePessoaFísica(ClientePessoaFísica cliente) {
+        return getListaDeClientesPessoaFísica().remove( cliente );
     }
 
     public int getQuantidadeDeClientesPessoaFísica() {
-        return this.getListaDeClientesCPF().size();
+        return this.getListaDeClientesPessoaFísica().size();
     }
+
+    /* Comparators/Ordenadores de PessoaFísica */
+
+    public Comparator<ClientePessoaFísica> comparaPorNome = (pF1, pF2) ->
+            pF1.getPessoaFísica().getNome().compareTo(pF2.getPessoaFísica().getNome());
+
+    public Comparator<ClientePessoaFísica> comparaPorIdade = (pF1, pF2) ->
+            pF1.getPessoaFísica().getDataDeNascimento().compareTo(pF2.getPessoaFísica().getDataDeNascimento());
+
 
 
     /* ---------------------------------------------- */
     /* .::Manipulação de Clientes (PessoaJurídica)::. */
     /* ---------------------------------------------- */
 
-    public Set<ClientePessoaJurídica> getListaDeClientesCNPj() {
-        return listaDeClientesCNPj;
+    public Set<ClientePessoaJurídica> getListaDeClientesPessoaJurídica() {
+        return listaDeClientesPessoaJurídica;
     }
 
-    public void setListaDeClientesCNPj(Set<ClientePessoaJurídica> listaDeClientesCNPj) {
-        this.listaDeClientesCNPj = listaDeClientesCNPj;
+    public void setListaDeClientesPessoaJurídica(Set<ClientePessoaJurídica> listaDeClientesPessoaJurídica) {
+        this.listaDeClientesPessoaJurídica = listaDeClientesPessoaJurídica;
     }
 
     public boolean cadastrarClientePessoaJurídica(ClientePessoaJurídica cliente) {
-        return true;
+        return getListaDeClientesPessoaJurídica().add( cliente );
+    }
+
+    public boolean removerClientePessoaJurídica(ClientePessoaJurídica cliente) {
+        return getListaDeClientesPessoaJurídica().remove( cliente );
     }
 
     public int getQuantidadeDeClientesPessoaJurídica() {
-        return this.getListaDeClientesCNPj().size();
+        return this.getListaDeClientesPessoaJurídica().size();
     }
+
+    /* Comparators/Ordenadores de PessoaJurídica */
+
+    public Comparator<ClientePessoaJurídica> comparaPorNomeFantasia = (pJ1, pJ2) ->
+            pJ1.getPessoaJurídica().getNomeFantasia().compareTo(pJ2.getPessoaJurídica().getNomeFantasia());
+
+    public Comparator<ClientePessoaJurídica> comparaPorRazãoSocial = (pJ1, pJ2) ->
+            pJ1.getPessoaJurídica().getRazãoSocial().compareTo(pJ2.getPessoaJurídica().getRazãoSocial());
 
 
     /* ---------------------------------------- */
@@ -183,12 +211,13 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     /* ---------------- */
     /* .::Comparador::. */
     /* ---------------- */
-    // Principalmente utilizado como parâmetro de ordenação em árvores de mapas e/ou conjuntos.
+    // Principalmente utilizado como parâmetro de ordenação em árvores de mapas e/ou de conjuntos.
 
     @Override
     public int compareTo(Agência outraAgência) {
         return getCódigo().compareTo(outraAgência.getCódigo());
     }
+
 
     /* -------- */
     /* toString */
@@ -201,8 +230,8 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
         return "Agência{" +
                 "código='" + código + '\'' +
                 ", listaDeFuncionários=" + listaDeFuncionários +
-                ", listaDeClientesCPF=" + listaDeClientesCPF +
-                ", listaDeClientesCNPj=" + listaDeClientesCNPj +
+                ", listaDeClientesCPF=" + listaDeClientesPessoaFísica +
+                ", listaDeClientesCNPj=" + listaDeClientesPessoaJurídica +
                 '}';
     }
 }

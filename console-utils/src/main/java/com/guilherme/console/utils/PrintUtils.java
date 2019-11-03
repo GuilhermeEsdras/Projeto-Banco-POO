@@ -1,4 +1,4 @@
-package com.guilherme.cli.printUtils;
+package com.guilherme.console.utils;
 
 public class PrintUtils {
 

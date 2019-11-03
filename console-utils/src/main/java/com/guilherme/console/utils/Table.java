@@ -1,4 +1,4 @@
-package com.guilherme.cli.printUtils;
+package com.guilherme.console.utils;
 
 import java.util.ArrayList;
 import java.util.List;

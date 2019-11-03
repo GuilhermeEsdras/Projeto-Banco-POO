@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/banco/banco.iml" filepath="$PROJECT_DIR$/banco/banco.iml" />
       <module fileurl="file://$PROJECT_DIR$/cli/cli.iml" filepath="$PROJECT_DIR$/cli/cli.iml" />
       <module fileurl="file://$PROJECT_DIR$/cliente/cliente.iml" filepath="$PROJECT_DIR$/cliente/cliente.iml" />
+      <module fileurl="file://$PROJECT_DIR$/console-utils/console-utils.iml" filepath="$PROJECT_DIR$/console-utils/console-utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/conta/conta.iml" filepath="$PROJECT_DIR$/conta/conta.iml" />
       <module fileurl="file://$PROJECT_DIR$/funcionario/funcionario.iml" filepath="$PROJECT_DIR$/funcionario/funcionario.iml" />
       <module fileurl="file://$PROJECT_DIR$/gui/gui.iml" filepath="$PROJECT_DIR$/gui/gui.iml" />

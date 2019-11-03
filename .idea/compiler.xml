@@ -7,14 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="cliente" />
-        <module name="funcionario" />
+        <module name="conta" />
         <module name="agencia" />
         <module name="cli" />
-        <module name="conta" />
+        <module name="gui" />
+        <module name="console-utils" />
         <module name="usuario" />
         <module name="banco" />
         <module name="pessoa" />
-        <module name="gui" />
+        <module name="funcionario" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -22,6 +23,7 @@
       <module name="banco" target="11" />
       <module name="cli" target="11" />
       <module name="cliente" target="11" />
+      <module name="console-utils" target="11" />
       <module name="conta" target="11" />
       <module name="funcionario" target="11" />
       <module name="gui" target="11" />

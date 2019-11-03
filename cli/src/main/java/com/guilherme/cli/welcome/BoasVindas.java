@@ -1,6 +1,7 @@
 package com.guilherme.cli.welcome;
 
-import com.guilherme.cli.printUtils.PrintUtils;
+
+import com.guilherme.console.utils.PrintUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.Random;
 public class BoasVindas
 {
     private List<String> listaDeBanners;
-    PrintUtils printUtils = new PrintUtils();
+    private PrintUtils printUtils = new PrintUtils();
 
     {
         this.setListaDeBanners( new ArrayList<>() );

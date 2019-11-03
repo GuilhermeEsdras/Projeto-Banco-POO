@@ -1,7 +1,7 @@
 package com.guilherme.cli;
 
-import com.guilherme.cli.printUtils.PrintUtils;
 import com.guilherme.cli.welcome.BoasVindas;
+import com.guilherme.console.utils.PrintUtils;
 
 
 public class MainCLI {

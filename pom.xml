@@ -17,6 +17,7 @@
 
     <!-- Módulos filhos -->
     <modules>
+        <module>console-utils</module>
         <module>usuario</module>
         <module>pessoa</module>
         <module>banco</module>

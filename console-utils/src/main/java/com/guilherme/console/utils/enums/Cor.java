@@ -1,4 +1,4 @@
-package com.guilherme.cli.printUtils.enums;
+package com.guilherme.console.utils.enums;
 
 public enum Cor {
     RESET("\033[0m"),

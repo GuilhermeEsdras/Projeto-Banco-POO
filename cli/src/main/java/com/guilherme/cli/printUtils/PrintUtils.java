@@ -1,8 +1,16 @@
 package com.guilherme.cli.printUtils;
 
-public class HeadersEDivs {
+public class PrintUtils {
 
-    public String divisória(String texto, String divisória) {
+    public void printaLn() {
+        System.out.println();
+    }
+
+    public void printaDiv(String div, int quant) {
+        System.out.print(div.repeat(quant));
+    }
+
+    public String divisóriaDeTexto(String texto, String divisória) {
         int max = 0, cont = 0;
         for (int i = 0; i < texto.length(); i++) {
             cont++;
@@ -27,7 +35,7 @@ public class HeadersEDivs {
      * @param divisória Divisória desejada.
      */
     public void printaStringEntreDivs(String texto, String divisória) {
-        String div = divisória(texto, divisória);
+        String div = divisóriaDeTexto(texto, divisória);
         System.out.println(div);
         System.out.print(texto);
         System.out.println(div);

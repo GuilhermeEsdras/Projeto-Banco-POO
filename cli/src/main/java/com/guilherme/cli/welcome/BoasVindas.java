@@ -1,6 +1,6 @@
 package com.guilherme.cli.welcome;
 
-import com.guilherme.cli.printUtils.HeadersEDivs;
+import com.guilherme.cli.printUtils.PrintUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.Random;
 public class BoasVindas
 {
     private List<String> listaDeBanners;
-    HeadersEDivs headersEDivs = new HeadersEDivs();
+    PrintUtils printUtils = new PrintUtils();
 
     {
         this.setListaDeBanners( new ArrayList<>() );
@@ -26,13 +26,13 @@ public class BoasVindas
 
     public void printBoasVindas(int opção) {
         String banner = getListaDeBanners().get(opção);
-        headersEDivs.printaStringEntreDivs(banner, "=");
+        printUtils.printaStringEntreDivs(banner, "=");
     }
 
     public void printBoasVindas() {
         Random random = new Random();
         String banner = getListaDeBanners().get(random.nextInt(getListaDeBanners().size()));
-        headersEDivs.printaStringEntreDivs(banner, "=");
+        printUtils.printaStringEntreDivs(banner, "=");
     }
 
 

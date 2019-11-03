@@ -1,14 +1,20 @@
 package com.guilherme.cli;
 
-import com.guilherme.cli.login.TelaDeLogin;
+import com.guilherme.cli.printUtils.PrintUtils;
 import com.guilherme.cli.welcome.BoasVindas;
 
-public class Main {
+
+public class MainCLI {
     public static void main(String[] args)
     {
+
+        PrintUtils printUtils = new PrintUtils();
+
         BoasVindas boasVindas = new BoasVindas();
         boasVindas.printBoasVindas();
 
-        TelaDeLogin telaDeLogin = new TelaDeLogin();
+        printUtils.printaLn();
+        printUtils.printaDiv("-", 50);
+
     }
 }

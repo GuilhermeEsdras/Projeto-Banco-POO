@@ -159,7 +159,7 @@ public class TelaDeCadastro extends JFrame {
         jLabel15.setForeground(new Color(12, 91, 160));
         jLabel15.setText("_______________________");
 
-        jLabel16.setIcon(new ImageIcon("icons8_resume_16px.png"));
+        jLabel16.setIcon(new ImageIcon("images\\icons8_resume_16px.png"));
 
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -232,7 +232,7 @@ public class TelaDeCadastro extends JFrame {
         jLabel2.setForeground(new Color(255, 255, 255));
         jLabel2.setText("$ Banco do Gui $");
 
-        jLabel7.setIcon(new ImageIcon("grap.png"));
+        jLabel7.setIcon(new ImageIcon("images\\grap.png"));
 
         jLabel8.setBackground(new Color(255, 255, 255));
         jLabel8.setFont(new Font("Segoe UI", 1, 18));
@@ -323,23 +323,6 @@ public class TelaDeCadastro extends JFrame {
 
     private void NomeFieldActionPerformed(ActionEvent evt) {
         // TODO ...
-    }
-
-
-    public static void main(String[] args) {
-
-        try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaDeCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-        EventQueue.invokeLater(() -> new TelaDeCadastro().setVisible(true));
     }
 
 }

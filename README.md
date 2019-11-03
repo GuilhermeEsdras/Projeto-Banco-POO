@@ -57,7 +57,7 @@ Assuntos da disciplina de Programação Orientada a Objetos *(que devem ser)* co
     - [x] Uso de Expressões lógicas
     - [x] Uso de Estruturas condicionais (if-else)
     - [x] Uso de incrementadores (++ --)
-    - [ ] Uso de Switch-case
+    - [x] Uso de Switch-case
     - [x] Uso de Condicional ternária ( expressão ? Sim : Não )
   - Estruturas Repetitivas:
     - [x] Uso de while / do while
@@ -81,7 +81,7 @@ Assuntos da disciplina de Programação Orientada a Objetos *(que devem ser)* co
   - [x] Tratamento de Exceções (try-catch-finally)
   - Arquivos:
     - [ ] FileReader/BufferedReader  +  FileWriter/BufferedWriter
-    - [ ] Uso de try-with-resources
+    - [x] Uso de try-with-resources
   - Interfaces:
     - [x] Uso de Interfaces
     - [x] Uso de Interface Comparable
@@ -103,7 +103,7 @@ Assuntos da disciplina de Programação Orientada a Objetos *(que devem ser)* co
 
 Extras:
 - [ ] Implementação de Banco de Dados
-- [ ] Criação de Interface Gráfica (com JavaFX e/ou Swing)
+- [x] Criação de Interface Gráfica (com JavaFX e/ou Swing)
 
 ---
 <!-- Fluxogramas e Diagramas -->

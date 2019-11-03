@@ -14,6 +14,7 @@ import org.apache.commons.lang3.*;
 // Java utils
 import java.util.*;
 
+
 /**
  * <h1>Agência</h1>
  *
@@ -53,6 +54,11 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     public Agência() {
         super();
         this.setCódigo( AGÊNCIA_SEM_CÓDIGO );
+    }
+
+    public Agência(String código) {
+        super();
+        this.setCódigo(código);
     }
 
     // Construtor completo
@@ -99,6 +105,11 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     }
 
     public boolean cadastrarFuncionário(Funcionário funcionário) {
+        for (Funcionário func : getListaDeFuncionários()) {
+            if ( func.getID().equals(funcionário.getID()) ) {
+                return false;
+            }
+        }
         return getListaDeFuncionários().add( funcionário );
     }
 

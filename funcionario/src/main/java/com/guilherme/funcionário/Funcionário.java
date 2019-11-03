@@ -114,7 +114,7 @@ public class Funcionário extends PessoaFísica implements Comparable<Funcionár
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(getID());
+        return getID().hashCode();
     }
 
 

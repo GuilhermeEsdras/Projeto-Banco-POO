@@ -38,9 +38,9 @@ public class AgênciaTest {
     private static final ClientePessoaJurídica clientePJ3_duplicado = new ClientePessoaJurídica( new PessoaJurídica("80194210000105" ));
 
 
-//    /* Funcionários de teste */
-//    private static final Funcionário caixa = new Caixa( "11452263378", 15 );
-//    private static final Funcionário caixa_duplicado = new Caixa( "11452263378", 15 );
+    /* Funcionários de teste */
+    private static final Funcionário caixa = new Caixa( "11452263378", 15 );
+    private static final Funcionário caixa_duplicado = new Caixa( "11452263378", 15 );
 
 
     @Test(expected = CódigoAgênciaInválidoException.class)
@@ -127,40 +127,21 @@ public class AgênciaTest {
     }
 
 
-//    @Test
-//    public void testDeveCadastrarFuncionários() {
-//        Assert.assertTrue( agência.cadastrarFuncionário( caixa ));
-//
-//        assertThat( agência.getListaDeFuncionários(), containsInAnyOrder( caixa ));
-//        assertThat( agência.getQuantidadeDeFuncionários(), is ( 1 ));
-//    }
-
-//    @Test
-//    public void testDeveRemoverFuncionários() {
-//        Assert.assertTrue( agência.cadastrarFuncionário( caixa ));
-//        Assert.assertTrue( agência.removerFuncionário( caixa ));
-//
-//        assertThat( agência.getListaDeFuncionários(), not( containsInAnyOrder( caixa )) );
-//        assertThat( agência.getQuantidadeDeFuncionários(), is ( 0 ));
-//    }
-//
     @Test
-    public void testNãoDeveCadastrarFuncionáriosDuplicados() {
-        System.out.println(agência.getQuantidadeDeFuncionários());
-        Funcionário funcionário = new Funcionário( "12345678910", 15);
-        Funcionário funcionário_dup = new Funcionário( "98742563212", 15);
+    public void testDeveCadastrarFuncionários() {
+        Assert.assertTrue( agência.cadastrarFuncionário( caixa ));
 
-        Assert.assertTrue( agência.cadastrarFuncionário( funcionário ));
-        System.out.println(agência.getQuantidadeDeFuncionários());
-
-
-
-
-        agência.cadastrarFuncionário( funcionário_dup );
-        System.out.println(agência.getQuantidadeDeFuncionários());
-
-        assertThat( agência.getListaDeFuncionários(), not( containsInAnyOrder( funcionário_dup )));
-        System.out.println(agência.getQuantidadeDeFuncionários());
-
+        assertThat( agência.getListaDeFuncionários(), containsInAnyOrder( caixa ));
+        assertThat( agência.getQuantidadeDeFuncionários(), is ( 1 ));
     }
+
+    @Test
+    public void testDeveRemoverFuncionários() {
+        Assert.assertTrue( agência.cadastrarFuncionário( caixa ));
+        Assert.assertTrue( agência.removerFuncionário( caixa ));
+
+        assertThat( agência.getListaDeFuncionários(), not( containsInAnyOrder( caixa )) );
+        assertThat( agência.getQuantidadeDeFuncionários(), is ( 0 ));
+    }
+
 }

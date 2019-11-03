@@ -7,21 +7,11 @@
       <change beforePath="$PROJECT_DIR$/agencia/src/test/java/com/guilherme/agência/AgênciaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/agencia/src/test/java/com/guilherme/agência/AgênciaTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banco/src/main/java/com/guilherme/banco/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/banco/src/main/java/com/guilherme/banco/Banco.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banco/src/test/java/com/guilherme/banco/BancoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/banco/src/test/java/com/guilherme/banco/BancoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/com/guilherme/cliente/ClientePessoaFísica.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/com/guilherme/cliente/ClientePessoaFísica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/com/guilherme/cliente/ClientePessoaJurídica.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/com/guilherme/cliente/ClientePessoaJurídica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conta/src/main/java/com/guilherme/conta/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/conta/src/main/java/com/guilherme/conta/Conta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conta/src/test/java/com/guilherme/conta/ContaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/conta/src/test/java/com/guilherme/conta/ContaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/cli.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cli/cli.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cli/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/Funcionário.java" beforeDir="false" afterPath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/Funcionário.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/caixa/Caixa.java" beforeDir="false" afterPath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/caixa/Caixa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/gerente/Gerente.java" beforeDir="false" afterPath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/gerente/Gerente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/segurança/Segurança.java" beforeDir="false" afterPath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/segurança/Segurança.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/segurança/SegurançaNoturno.java" beforeDir="false" afterPath="$PROJECT_DIR$/funcionario/src/main/java/com/guilherme/funcionário/segurança/SegurançaNoturno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/Pessoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/pessoafísica/PessoaFísica.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/pessoafísica/PessoaFísica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/pessoajurídica/PessoaJurídica.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/pessoajurídica/PessoaJurídica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/testes/Testes.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/main/java/com/guilherme/pessoa/tests/Testes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuario/src/main/java/com/guilherme/usuário/Usuário.java" beforeDir="false" afterPath="$PROJECT_DIR$/usuario/src/main/java/com/guilherme/usuário/Usuário.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuario/src/main/java/com/guilherme/usuário/tests/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/usuario/src/main/java/com/guilherme/usuário/tests/Tests.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +87,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AgênciaTest.testNãoDeveCadastrarFuncionáriosDuplicados">
+  <component name="RunManager" selected="JUnit.BancoTest">
     <configuration name="AgênciaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="agencia" />
       <extension name="coverage">
@@ -113,65 +103,64 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AgênciaTest.testDeveCadastrarFuncionários" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="agencia" />
+    <configuration name="BancoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="banco" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.guilherme.agência.*" />
+          <option name="PATTERN" value="com.guilherme.banco.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.guilherme.agência" />
-      <option name="MAIN_CLASS_NAME" value="com.guilherme.agência.AgênciaTest" />
-      <option name="METHOD_NAME" value="testDeveCadastrarFuncionários" />
+      <option name="PACKAGE_NAME" value="com.guilherme.banco" />
+      <option name="MAIN_CLASS_NAME" value="com.guilherme.banco.BancoTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BancoTest.testDeveCadastrarAgência" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="banco" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.guilherme.banco.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.guilherme.banco" />
+      <option name="MAIN_CLASS_NAME" value="com.guilherme.banco.BancoTest" />
+      <option name="METHOD_NAME" value="testDeveCadastrarAgência" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AgênciaTest.testDeveRemoverFuncionários" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="agencia" />
+    <configuration name="BancoTest.testDeve_Cadastrar_e_Remover_Agência" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="banco" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.guilherme.agência.*" />
+          <option name="PATTERN" value="com.guilherme.banco.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.guilherme.agência" />
-      <option name="MAIN_CLASS_NAME" value="com.guilherme.agência.AgênciaTest" />
-      <option name="METHOD_NAME" value="testDeveRemoverFuncionários" />
+      <option name="PACKAGE_NAME" value="com.guilherme.banco" />
+      <option name="MAIN_CLASS_NAME" value="com.guilherme.banco.BancoTest" />
+      <option name="METHOD_NAME" value="testDeve_Cadastrar_e_Remover_Agência" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AgênciaTest.testGetSetCódigoAgência" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="agencia" />
+    <configuration name="BancoTest.testNãoDeveCadastrarAgência" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="banco" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.guilherme.agência.*" />
+          <option name="PATTERN" value="com.guilherme.banco.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.guilherme.agência" />
-      <option name="MAIN_CLASS_NAME" value="com.guilherme.agência.AgênciaTest" />
-      <option name="METHOD_NAME" value="testGetSetCódigoAgência" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AgênciaTest.testNãoDeveCadastrarFuncionáriosDuplicados" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="agencia" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.guilherme.agência.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.guilherme.agência" />
-      <option name="MAIN_CLASS_NAME" value="com.guilherme.agência.AgênciaTest" />
-      <option name="METHOD_NAME" value="testNãoDeveCadastrarFuncionáriosDuplicados" />
+      <option name="PACKAGE_NAME" value="com.guilherme.banco" />
+      <option name="MAIN_CLASS_NAME" value="com.guilherme.banco.BancoTest" />
+      <option name="METHOD_NAME" value="testNãoDeveCadastrarAgência" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -179,11 +168,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AgênciaTest.testNãoDeveCadastrarFuncionáriosDuplicados" />
+        <item itemvalue="JUnit.BancoTest" />
         <item itemvalue="JUnit.AgênciaTest" />
-        <item itemvalue="JUnit.AgênciaTest.testGetSetCódigoAgência" />
-        <item itemvalue="JUnit.AgênciaTest.testDeveRemoverFuncionários" />
-        <item itemvalue="JUnit.AgênciaTest.testDeveCadastrarFuncionários" />
+        <item itemvalue="JUnit.BancoTest.testDeve_Cadastrar_e_Remover_Agência" />
+        <item itemvalue="JUnit.BancoTest.testNãoDeveCadastrarAgência" />
+        <item itemvalue="JUnit.BancoTest.testDeveCadastrarAgência" />
       </list>
     </recent_temporary>
   </component>
@@ -211,6 +200,8 @@
       <workItem from="1572611431084" duration="5157000" />
       <workItem from="1572643041589" duration="18974000" />
       <workItem from="1572664431382" duration="1141000" />
+      <workItem from="1572698816441" duration="4593000" />
+      <workItem from="1572741918964" duration="1616000" />
     </task>
     <task id="LOCAL-00001" summary="Módulos criados">
       <created>1572094180201</created>

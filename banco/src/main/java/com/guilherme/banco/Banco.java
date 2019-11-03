@@ -95,6 +95,11 @@ public class Banco extends PessoaJurídica implements Comparable<Banco> {
         }
     }
 
+
+    /* ----------------------------- */
+    /* .::Manipulação de Agências::. */
+    /* ----------------------------- */
+
     public Set<Agência> getListaDeAgências() {
         return listaDeAgências;
     }
@@ -103,13 +108,22 @@ public class Banco extends PessoaJurídica implements Comparable<Banco> {
         this.listaDeAgências = listaDeAgências;
     }
 
-
-    /* ----------------------------- */
-    /* .::Manipulação de Agências::. */
-    /* ----------------------------- */
-
     public boolean cadastrarAgência(Agência agência) {
-        return listaDeAgências.add( agência );
+        return getListaDeAgências().add( agência );
+    }
+
+    public boolean removerAgência(String código) {
+        Agência agênciaTemp = null;
+        for (Agência agência : getListaDeAgências()) {
+            if (agência.getCódigo().equals(código)) {
+                agênciaTemp = agência;
+            }
+        }
+        return getListaDeAgências().remove(agênciaTemp);
+    }
+
+    public int getQuantidadeDeAgências() {
+        return getListaDeAgências().size();
     }
 
 

@@ -1,8 +1,15 @@
 package com.guilherme.pessoa;
 
+import com.guilherme.console.utils.Block;
+import com.guilherme.console.utils.Board;
+import com.guilherme.console.utils.PrintUtils;
+import com.guilherme.console.utils.Table;
 import com.guilherme.pessoa.enums.Estado;
 import com.guilherme.pessoa.exceptions.EstadoInválidoException;
 import org.apache.commons.lang3.EnumUtils;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * <h1>Endereço</h1>
@@ -145,13 +152,44 @@ public class Endereço {
 
     @Override
     public String toString() {
-        return "Endereço{" +
-                "logradouro='" + logradouro + '\'' +
-                ", número=" + número +
-                ", complemento='" + complemento + '\'' +
-                ", bairro='" + bairro + '\'' +
-                ", cidade='" + cidade + '\'' +
-                ", estado=" + estado +
-                '}';
+
+        PrintUtils printUtils = new PrintUtils();
+
+        /* Informações da Tabela */
+        String titulo       = "DADOS DO ENDEREÇO";
+        List<String> header = Arrays.asList(" CAMPO ", " VALOR ");
+        String campoLogradouro    = " Logradouro: ",  logradouro = getLogradouro();
+        String campoNúmero        = " Número: ",      número = String.format("%d", getNúmero());
+        String campoComplemento   = " Complemento: ", complemento = getComplemento();
+        String campoBairro        = " Bairro: ",      bairro = getBairro();
+        String campoCidade        = " Cidade: ",      cidade = getCidade();
+        String campoEstado        = " Estado: ",      estado = getEstado().toString();
+        List<String> linha1 = Arrays.asList(campoLogradouro, logradouro);
+        List<String> linha2 = Arrays.asList(campoNúmero, número);
+        List<String> linha3 = Arrays.asList(campoComplemento, complemento);
+        List<String> linha4 = Arrays.asList(campoBairro, bairro);
+        List<String> linha5 = Arrays.asList(campoCidade, cidade);
+        List<String> linha6 = Arrays.asList(campoEstado, estado);
+        List<List<String>> linhas = Arrays.asList(linha1, linha2, linha3, linha4, linha5, linha6);
+
+        /* Dimensões da Tabela */
+        int quantidadeDeColunas = header.size();
+        int larguraDoCampo      = campoComplemento.length();
+        int larguraDoValor      = Math.max( Math.max(complemento.length(), logradouro.length()), Math.max(bairro.length(), cidade.length()) ) + 2;
+        int larguraDaTabela     = Math.max((larguraDoCampo + larguraDoValor), titulo.length() ) + (quantidadeDeColunas + 1);
+        int larguraDoTitulo     = larguraDaTabela - 2;
+        int alturaDoTitulo      = printUtils.quantidadeDeLinhas(titulo);
+
+        List<Integer> largurasDasLinhas = Arrays.asList(larguraDoCampo, larguraDoValor);
+        List<Integer> alinhamentos = Arrays.asList(
+                Block.DATA_MIDDLE_LEFT,
+                Block.DATA_MIDDLE_LEFT
+        );
+
+        /* Construção da Tabela */
+        Board tabela = new Board(larguraDaTabela);
+        tabela.setInitialBlock(new Block(tabela, larguraDoTitulo, alturaDoTitulo, titulo).setDataAlign(Block.DATA_CENTER));
+        tabela.appendTableTo(0, Board.APPEND_BELOW, new Table(tabela, larguraDaTabela, header, linhas, largurasDasLinhas).setColAlignsList(alinhamentos));
+        return tabela.invalidate().build().getPreview();
     }
 }

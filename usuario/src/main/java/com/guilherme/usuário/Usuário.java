@@ -5,6 +5,7 @@ import com.guilherme.console.utils.Block;
 import com.guilherme.console.utils.Board;
 import com.guilherme.console.utils.PrintUtils;
 import com.guilherme.console.utils.Table;
+import com.guilherme.console.utils.enums.Cor;
 import com.guilherme.usuário.exceptions.EmailInválidoException;
 import com.guilherme.usuário.exceptions.LoginInválidoException;
 import com.guilherme.usuário.exceptions.SenhaInválidaException;
@@ -152,7 +153,7 @@ public class Usuário {
         int quantidadeDeColunas = header.size();
         int larguraDoCampo      = campoEmail.length();
         int larguraDoValor      = getEmail().length() + 2;
-        int larguraDaTabela     = larguraDoCampo + larguraDoValor + (quantidadeDeColunas + 1);
+        int larguraDaTabela     = Math.max((larguraDoCampo + larguraDoValor), titulo.length() ) + (quantidadeDeColunas + 1);
         int larguraDoTitulo     = larguraDaTabela - 2;
         int alturaDoTitulo      = printUtils.quantidadeDeLinhas(titulo);
 

@@ -32,7 +32,14 @@ public abstract class Pessoa extends Usuário {
     /* Atributos Default */
     static final String PESSOA_SEM_TELEFONE = "--- Sem telefone ---";
 
-
+    /* Atributos auxiliares */
+    private static int larguraGeralDasTabelas = 0;
+    public static int getLarguraGeralDasTabelas() {
+        return larguraGeralDasTabelas;
+    }
+    public static void setLarguraGeralDasTabelas(int larguraGeralDasTabelas) {
+        Pessoa.larguraGeralDasTabelas = larguraGeralDasTabelas;
+    }
     /* ------------------ */
     /* .::Construtores::. */
     /* ------------------ */
@@ -98,20 +105,6 @@ public abstract class Pessoa extends Usuário {
         } else {
             throw new TelefoneInválidoException();
         }
-    }
-
-
-    /* -------- */
-    /* toString */
-    /* -------- */
-    // Dados do objeto em formato String.
-
-    @Override
-    public String toString() {
-        return "Pessoa{" +
-                "endereço=" + endereço +
-                ", telefone='" + telefone + '\'' +
-                '}';
     }
 
 

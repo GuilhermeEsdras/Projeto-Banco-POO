@@ -1,6 +1,10 @@
 package com.guilherme.pessoa.pessoafísica;
 
 // Outros packages
+import com.guilherme.console.utils.Block;
+import com.guilherme.console.utils.Board;
+import com.guilherme.console.utils.PrintUtils;
+import com.guilherme.console.utils.Table;
 import com.guilherme.pessoa.Pessoa;
 import com.guilherme.pessoa.Endereço;
 import com.guilherme.pessoa.exceptions.*;
@@ -215,13 +219,44 @@ public class PessoaFísica extends Pessoa {
 
     @Override
     public String toString() {
-        return "PessoaFísica{" +
-                "CPF='" + CPF + '\'' +
-                ", nome='" + nome + '\'' +
-                ", sobrenome='" + sobrenome + '\'' +
-                ", dataDeNascimento='" + dataDeNascimento + '\'' +
-                ", idade=" + idade +
-                '}';
+
+        PrintUtils printUtils = new PrintUtils();
+
+        /* Informações da Tabela */
+        String titulo       = "DADOS DE " + getNome();
+        List<String> header = Arrays.asList(" CAMPO ", " VALOR ");
+
+        String campoCPF              = " CPF: ",                CPF = getCPF();
+        String campoNome             = " Nome: ",               nome = getNome();
+        String campoSobrenome        = " Sobrenome: ",          sobrenome = getSobrenome();
+        String campoDataDeNascimento = " Data de Nascimento: ", dataDeNascimento = getDataDeNascimento();
+        String campoIdade            = " Idade: ",              idade = String.format("%d", getIdade());
+        List<String> linha1 = Arrays.asList(campoCPF, CPF);
+        List<String> linha2 = Arrays.asList(campoNome, nome);
+        List<String> linha3 = Arrays.asList(campoSobrenome, sobrenome);
+        List<String> linha4 = Arrays.asList(campoDataDeNascimento, dataDeNascimento);
+        List<String> linha5 = Arrays.asList(campoIdade, idade);
+        List<List<String>> linhas = Arrays.asList(linha1, linha2, linha3, linha4, linha5);
+
+        /* Dimensões da Tabela */
+        int quantidadeDeColunas = header.size();
+        int larguraDoCampo      = campoDataDeNascimento.length();
+        int larguraDoValor      = Math.max( Math.max(CPF.length(), nome.length()), Math.max(sobrenome.length(), dataDeNascimento.length()) ) + 2;
+        int larguraDaTabela     = Math.max((larguraDoCampo + larguraDoValor), titulo.length() ) + (quantidadeDeColunas + 1);
+        int larguraDoTitulo     = larguraDaTabela - 2;
+        int alturaDoTitulo      = printUtils.quantidadeDeLinhas(titulo);
+
+        List<Integer> largurasDasLinhas = Arrays.asList(larguraDoCampo, larguraDoValor);
+        List<Integer> alinhamentos = Arrays.asList(
+                Block.DATA_MIDDLE_LEFT,
+                Block.DATA_MIDDLE_LEFT
+        );
+
+        /* Construção da Tabela */
+        Board tabela = new Board(larguraDaTabela);
+        tabela.setInitialBlock(new Block(tabela, larguraDoTitulo, alturaDoTitulo, titulo).setDataAlign(Block.DATA_CENTER));
+        tabela.appendTableTo(0, Board.APPEND_BELOW, new Table(tabela, larguraDaTabela, header, linhas, largurasDasLinhas).setColAlignsList(alinhamentos));
+        return tabela.invalidate().build().getPreview();
     }
 
 

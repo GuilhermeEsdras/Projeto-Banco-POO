@@ -48,7 +48,7 @@ Assuntos da disciplina de Programação Orientada a Objetos *(que devem ser)* co
 - Específicos da Linguagem Java:
   - Estrutura Sequencial:
     - [x] Uso de Expressões Aritméticas
-    - [ ] Uso de Funções matemáticas
+    - [x] Uso de Funções matemáticas
     - [x] Uso de Casting
     - [x] Uso de todos os tipos básicos de variáveis
     - [x] Uso de manipuladores de entrada e saída de dados
@@ -58,7 +58,7 @@ Assuntos da disciplina de Programação Orientada a Objetos *(que devem ser)* co
     - [x] Uso de Estruturas condicionais (if-else)
     - [x] Uso de incrementadores (++ --)
     - [ ] Uso de Switch-case
-    - [ ] Uso de Condicional ternária ( expressão ? Sim : Não )
+    - [x] Uso de Condicional ternária ( expressão ? Sim : Não )
   - Estruturas Repetitivas:
     - [x] Uso de while / do while
     - [x] Uso de for
@@ -93,12 +93,12 @@ Assuntos da disciplina de Programação Orientada a Objetos *(que devem ser)* co
     - [x] Uso de Maps
   
 - Programação Funcional e Expressões Lambda:
-  - [ ] Uso de Comparador com expressão lambda
-  - [ ] Uso de cálculos lambda
-  - [ ] Uso de Interface funcional
+  - [x] Uso de Comparador com expressão lambda
+  - [x] Uso de cálculos lambda
+  - [x] Uso de Interface funcional
   - [x] Uso de Predicate
   - [x] Uso de Consumer
-  - [ ] Uso de Function
+  - [x] Uso de Function
   - [x] Uso de Stream
 
 Extras:

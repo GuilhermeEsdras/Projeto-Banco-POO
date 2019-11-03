@@ -10,7 +10,7 @@ import org.junit.*;
 public class ContaTest {
 
     // Dado que...
-    ContaCorrente contaCorrente;
+    private ContaCorrente contaCorrente;
 
     @Before
     public void setUp() {

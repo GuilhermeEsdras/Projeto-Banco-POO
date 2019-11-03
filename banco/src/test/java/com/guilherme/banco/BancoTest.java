@@ -3,12 +3,11 @@ package com.guilherme.banco;
 import com.guilherme.agência.Agência;
 import com.guilherme.banco.exceptions.CódigoBancoInválidoException;
 
-// Hamcrest
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
-
-// JUnit
+// Tests
 import org.junit.*;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.*;
+import static org.assertj.core.api.Assertions.*;
 
 public class BancoTest {
 
@@ -16,21 +15,26 @@ public class BancoTest {
     private Agência agência = new Agência("1234");
 
 
-    @Test(expected = CódigoBancoInválidoException.class)
+    @Test
     public void testGetSetCódigoBanco() {
 
+        // Dado que...
         String códigoVálido = "123";
 
+        // quando...
         banco.setCódigo(códigoVálido);
 
         // evite...
-        banco.setCódigo("abc");
-        banco.setCódigo("ABCD");
-        banco.setCódigo("12345");
-        banco.setCódigo("s24q");
-        banco.setCódigo("12#");
+        assertThatThrownBy( () -> banco.setCódigo("12345") ).isInstanceOf( CódigoBancoInválidoException.class );
+        assertThatThrownBy( () -> banco.setCódigo("ABCD") ).isInstanceOf( CódigoBancoInválidoException.class );
+        assertThatThrownBy( () -> banco.setCódigo("s24q") ).isInstanceOf( CódigoBancoInválidoException.class );
+        assertThatThrownBy( () -> banco.setCódigo("abc") ).isInstanceOf( CódigoBancoInválidoException.class );
+        assertThatThrownBy( () -> banco.setCódigo("12#") ).isInstanceOf( CódigoBancoInválidoException.class );
+        assertThatThrownBy( () -> banco.setCódigo("12") ).isInstanceOf( CódigoBancoInválidoException.class );
 
-        Assert.assertEquals(códigoVálido, banco.getCódigo());
+        // certifique-se
+        System.out.println(banco.getCódigo());
+        assertThat( banco.getCódigo(), is( equalTo( códigoVálido )));
     }
 
     @Test

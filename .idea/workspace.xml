@@ -2,19 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97eff0b7-0000-4dd1-bfd6-9ae04316cda3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Guilherme.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Guilherme.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_javax_mail_1_6_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cli/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/MainCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/MainCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/printUtils/Block.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/printUtils/Board.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/printUtils/Charr.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/printUtils/PrintUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/printUtils/Table.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/printUtils/enums/Cor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/welcome/BoasVindas.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/welcome/BoasVindas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetoBancoPOO.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoBancoPOO.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agencia/agencia.iml" beforeDir="false" afterPath="$PROJECT_DIR$/agencia/agencia.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agencia/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/agencia/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agencia/src/main/java/com/guilherme/agência/Agência.java" beforeDir="false" afterPath="$PROJECT_DIR$/agencia/src/main/java/com/guilherme/agência/Agência.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agencia/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/agencia/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agencia/src/test/java/com/guilherme/agência/AgênciaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/agencia/src/test/java/com/guilherme/agência/AgênciaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/banco.iml" beforeDir="false" afterPath="$PROJECT_DIR$/banco/banco.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/src/main/java/com/guilherme/banco/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/banco/src/main/java/com/guilherme/banco/Banco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/src/test/java/com/guilherme/banco/BancoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/banco/src/test/java/com/guilherme/banco/BancoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/cli.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cli/cli.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/cliente.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/cliente.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console-utils/console-utils.iml" beforeDir="false" afterPath="$PROJECT_DIR$/console-utils/console-utils.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console-utils/src/main/java/com/guilherme/console/utils/PrintUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/console-utils/src/main/java/com/guilherme/console/utils/PrintUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conta/conta.iml" beforeDir="false" afterPath="$PROJECT_DIR$/conta/conta.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conta/src/test/java/com/guilherme/conta/ContaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/conta/src/test/java/com/guilherme/conta/ContaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funcionario/funcionario.iml" beforeDir="false" afterPath="$PROJECT_DIR$/funcionario/funcionario.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/gui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gui/gui.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pessoa/pessoa.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/pessoa.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pessoa/src/test/java/com/guilherme/pessoa/PessoaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/test/java/com/guilherme/pessoa/PessoaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pessoa/src/test/java/com/guilherme/pessoa/pessoafísica/PessoaFísicaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/test/java/com/guilherme/pessoa/pessoafísica/PessoaFísicaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pessoa/src/test/java/com/guilherme/pessoa/pessoajurídica/PessoaJurídicaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/pessoa/src/test/java/com/guilherme/pessoa/pessoajurídica/PessoaJurídicaTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuario/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/usuario/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuario/src/main/java/com/guilherme/usuário/Usuário.java" beforeDir="false" afterPath="$PROJECT_DIR$/usuario/src/main/java/com/guilherme/usuário/Usuário.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuario/src/main/java/com/guilherme/usuário/tests/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/usuario/src/main/java/com/guilherme/usuário/tests/TestesUsuário.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuario/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/usuario/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuario/src/test/java/com/guilherme/usuário/UsuárioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/usuario/src/test/java/com/guilherme/usuário/UsuárioTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuario/usuario.iml" beforeDir="false" afterPath="$PROJECT_DIR$/usuario/usuario.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,46 +117,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainCLI">
-    <configuration name="MainCLI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.guilherme.cli.MainCLI" />
-      <module name="cli" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.guilherme.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.guilherme.gui.MainGUI" />
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.guilherme.gui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TelaDeCadastro" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.guilherme.gui.cadastro.TelaDeCadastro" />
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.guilherme.gui.cadastro.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.BancoTest">
     <configuration name="AgênciaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="agencia" />
       <extension name="coverage">
@@ -168,13 +148,59 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PessoaFísicaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pessoa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.guilherme.pessoa.pessoafísica.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.guilherme.pessoa.pessoafísica" />
+      <option name="MAIN_CLASS_NAME" value="com.guilherme.pessoa.pessoafísica.PessoaFísicaTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PessoaFísicaTest.testSetGetDataDeNascimento_e_Idade" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pessoa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.guilherme.pessoa.pessoafísica.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.guilherme.pessoa.pessoafísica" />
+      <option name="MAIN_CLASS_NAME" value="com.guilherme.pessoa.pessoafísica.PessoaFísicaTest" />
+      <option name="METHOD_NAME" value="testSetGetDataDeNascimento_e_Idade" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PessoaJurídicaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pessoa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.guilherme.pessoa.pessoajurídica.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.guilherme.pessoa.pessoajurídica" />
+      <option name="MAIN_CLASS_NAME" value="com.guilherme.pessoa.pessoajurídica.PessoaJurídicaTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainGUI" />
-        <item itemvalue="Application.TelaDeCadastro" />
-        <item itemvalue="Application.MainCLI" />
         <item itemvalue="JUnit.BancoTest" />
         <item itemvalue="JUnit.AgênciaTest" />
+        <item itemvalue="JUnit.PessoaFísicaTest" />
+        <item itemvalue="JUnit.PessoaFísicaTest.testSetGetDataDeNascimento_e_Idade" />
+        <item itemvalue="JUnit.PessoaJurídicaTest" />
       </list>
     </recent_temporary>
   </component>
@@ -204,7 +230,8 @@
       <workItem from="1572664431382" duration="1141000" />
       <workItem from="1572698816441" duration="4593000" />
       <workItem from="1572741918964" duration="14336000" />
-      <workItem from="1572784040718" duration="1678000" />
+      <workItem from="1572784040718" duration="8499000" />
+      <workItem from="1572796526342" duration="7638000" />
     </task>
     <task id="LOCAL-00001" summary="Módulos criados">
       <created>1572094180201</created>

@@ -9,12 +9,11 @@ import com.guilherme.funcionário.caixa.Caixa;
 import com.guilherme.pessoa.pessoafísica.PessoaFísica;
 import com.guilherme.pessoa.pessoajurídica.PessoaJurídica;
 
-// Hamcrest
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
-
-// JUnit
+// Tests
 import org.junit.*;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.*;
+import static org.assertj.core.api.Assertions.*;
 
 
 public class AgênciaTest {
@@ -43,7 +42,7 @@ public class AgênciaTest {
     private static final Funcionário caixa_duplicado = new Caixa( "11452263378", 15 );
 
 
-    @Test(expected = CódigoAgênciaInválidoException.class)
+    @Test
     public void testGetSetCódigoAgência()
     {
         // Test default
@@ -56,13 +55,14 @@ public class AgênciaTest {
         agência.setCódigo(códigoVálido);
 
         // evite...
-        agência.setCódigo( "05510" );
-        agência.setCódigo( "abcd" );
-        agência.setCódigo( "@2c8" );
-        agência.setCódigo( "91" );
+        assertThatThrownBy( () -> agência.setCódigo( "05510" ) ).isInstanceOf( CódigoAgênciaInválidoException.class );
+        assertThatThrownBy( () -> agência.setCódigo( "abcd" ) ).isInstanceOf( CódigoAgênciaInválidoException.class );
+        assertThatThrownBy( () -> agência.setCódigo( "@2c8" ) ).isInstanceOf( CódigoAgênciaInválidoException.class );
+        assertThatThrownBy( () -> agência.setCódigo( "91" ) ).isInstanceOf( CódigoAgênciaInválidoException.class );
 
         // certifique-se...
-        Assert.assertEquals(códigoVálido, agência.getCódigo());
+        System.out.println(agência.getCódigo());
+        assertThat( agência.getCódigo(), is( equalTo( códigoVálido )));
     }
 
     @Test

@@ -70,13 +70,12 @@
             <version>3.0</version>
         </dependency>
 
-        <!-- Para validação de e-mail: -->
         <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>javax.mail</artifactId>
-            <version>1.6.2</version>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.14.0</version>
+            <scope>test</scope>
         </dependency>
-
 
     </dependencies>
 

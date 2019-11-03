@@ -11,6 +11,14 @@
 
     <!-- Nome do módulo -->
     <artifactId>usuario</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.guilherme</groupId>
+            <artifactId>console-utils</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>

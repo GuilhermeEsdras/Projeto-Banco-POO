@@ -2,7 +2,12 @@ package com.guilherme.usuário;
 
 import com.guilherme.usuário.exceptions.*;
 
+// Tests
 import org.junit.*;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.*;
+import static org.assertj.core.api.Assertions.*;
+
 
 public class UsuárioTest {
 
@@ -13,61 +18,69 @@ public class UsuárioTest {
         usuário = new Usuário();
     }
 
-    @Test(expected = EmailInválidoException.class)
+    @Test
     public void testGetSetEmail() {
+        // Test default
+        Assert.assertEquals(Usuário.getEmailTest(), usuário.getEmail());
+
         // dado que...
         String emailVálido   = "guilherme.esdras@gmail.com";
-
-        String emailInválido1 = "guilherme.esdras@gmail";
-        String emailInválido2 = "guilherme.esdras@";
-        String emailInválido3 = "guilherme.esdras";
-        String emailInválido4 = "gu!lherme[esdrás";
 
         // quando...
         usuário.setEmail(emailVálido);
 
         // evite...
-        usuário.setEmail(emailInválido1);
-        usuário.setEmail(emailInválido2);
-        usuário.setEmail(emailInválido3);
-        usuário.setEmail(emailInválido4);
+        assertThatThrownBy( () -> usuário.setEmail("guilherme.esdras@gmail") ).isInstanceOf( EmailInválidoException.class );
+        assertThatThrownBy( () -> usuário.setEmail("guilherme.esdras@") ).isInstanceOf( EmailInválidoException.class );
+        assertThatThrownBy( () -> usuário.setEmail("guilherme.esdras") ).isInstanceOf( EmailInválidoException.class );
+        assertThatThrownBy( () -> usuário.setEmail("gu!lherme[esdrás") ).isInstanceOf( EmailInválidoException.class );
 
         // certifique-se...
-        Assert.assertEquals(emailVálido, usuário.getEmail());
+        System.out.println(usuário.getEmail());
+        assertThat( usuário.getEmail(), is( equalTo( emailVálido )));
     }
 
-    @Test(expected = LoginInválidoException.class)
+    @Test
     public void testGetSetLogin() {
-        // dado que...
-        String loginVálido = "GuiEsdr4s";
+        // Test default
+        Assert.assertEquals(Usuário.getLoginTest(), usuário.getLogin());
 
-        String loginInválido1 = "Gu!-$sdr@s.";
+        // dado que...
+        String loginVálido    = "GuiEsdr4s";
+        String loginInválido1 = "Gu!-$sdr@s.";        // Caracteres Inválidos
+        String loginInválido2 = "GuilhermeEsdrasss";  // Tamanho máximo excedido
 
         // quando...
         usuário.setLogin(loginVálido);
 
         // evite...
-        usuário.setLogin(loginInválido1);
+        assertThatThrownBy( () -> usuário.setLogin( loginInválido1 ) ).isInstanceOf( LoginInválidoException.class );
+        assertThatThrownBy( () -> usuário.setLogin( loginInválido2 ) ).isInstanceOf( LoginInválidoException.class );
 
         // certifique-se...
-        Assert.assertEquals(loginVálido, usuário.getLogin());
-
+        System.out.println(usuário.getLogin());
+        assertThat( usuário.getLogin(), is( equalTo( loginVálido )));
     }
 
-    @Test(expected = SenhaInválidaException.class)
+    @Test
     public void testGetSetSenha() {
-        // dado que...
-        String senhaVálida = "123456";
+        // Test default
+        Assert.assertEquals(Usuário.getSenhaPadrão(), usuário.getSenha());
 
-        String senhaInválida = "12345"; // Menos de 6 caracteres
+        // dado que...
+        String senhaVálida    = "123456";
+        String senhaInválida1 = "12345";          // Tamanho mínimo exigido
+        String senhaInválida2 = "1234567891234";  // Tamanho máximo excedido
 
         // quando...
         usuário.setSenha(senhaVálida);
 
         // evite...
-        usuário.setSenha(senhaInválida);
+        assertThatThrownBy( () -> usuário.setSenha( senhaInválida1 )).isInstanceOf( SenhaInválidaException.class );
+        assertThatThrownBy( () -> usuário.setSenha( senhaInválida2 )).isInstanceOf( SenhaInválidaException.class );
 
         // certifique-se...
-        Assert.assertEquals(senhaVálida, usuário.getSenha());
+        System.out.println(usuário.getSenha());
+        assertThat( usuário.getSenha(), is( equalTo( senhaVálida )));
     }
 }

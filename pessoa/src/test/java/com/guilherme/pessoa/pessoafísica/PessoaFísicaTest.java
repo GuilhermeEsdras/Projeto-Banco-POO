@@ -3,8 +3,11 @@ package com.guilherme.pessoa.pessoafísica;
 import com.guilherme.pessoa.exceptions.CPFInválidoException;
 import com.guilherme.pessoa.exceptions.DataInválidaException;
 
-// JUnit
+// Tests
 import org.junit.*;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.*;
+import static org.assertj.core.api.Assertions.*;
 
 public class PessoaFísicaTest {
 
@@ -16,7 +19,7 @@ public class PessoaFísicaTest {
         pessoaFísica = new PessoaFísica();
     }
 
-    @Test(expected = CPFInválidoException.class)
+    @Test
     public void testSetGetCPF() {
         // Test default
         Assert.assertEquals(PessoaFísica.PESSOA_SEM_CPF, pessoaFísica.getCPF());
@@ -27,12 +30,12 @@ public class PessoaFísicaTest {
         pessoaFísica.setCPF(CPFVálido);
 
         // evite...
-        pessoaFísica.setCPF("");
-        pessoaFísica.setCPF(CPFFormatado);
-        pessoaFísica.setCPF("abc");
+        assertThatThrownBy( () -> pessoaFísica.setCPF(CPFFormatado) ).isInstanceOf( CPFInválidoException.class );
+        assertThatThrownBy( () -> pessoaFísica.setCPF("abc")        ).isInstanceOf( CPFInválidoException.class );
 
         // certifique-se...
-        Assert.assertEquals(CPFFormatado, pessoaFísica.getCPF());
+        System.out.println(pessoaFísica.getCPF());
+        assertThat( pessoaFísica.getCPF(), is( equalTo( pessoaFísica.getCPF() )));
 
     }
 
@@ -50,7 +53,8 @@ public class PessoaFísicaTest {
         pessoaFísica.setNome("123");
 
         // certifique-se...
-        Assert.assertEquals(nome, pessoaFísica.getNome());
+        System.out.println(pessoaFísica.getNome());
+        assertThat( pessoaFísica.getNome(), is( equalTo( nome )));
     }
 
     @Test
@@ -67,30 +71,34 @@ public class PessoaFísicaTest {
         pessoaFísica.setSobrenome("456");
 
         // certifique-se...
-        Assert.assertEquals(sobrenome, pessoaFísica.getSobrenome());
+        System.out.println(pessoaFísica.getSobrenome());
+        assertThat( pessoaFísica.getSobrenome(), is( equalTo( sobrenome )));
     }
 
-    @Test(expected = DataInválidaException.class)
+    @Test
     public void testSetGetDataDeNascimento_e_Idade() {
         // Test default
         Assert.assertEquals(PessoaFísica.PESSOA_SEM_DATADENASCIMENTO, pessoaFísica.getDataDeNascimento());
 
         // quando...
         String dataVálida = "21/04/1997";
+        byte idade = 22;
         pessoaFísica.setDataDeNascimento(dataVálida);
 
         // evite...
         String dataInválida = "10/20/30";
-        pessoaFísica.setDataDeNascimento(dataInválida);
+        assertThatThrownBy( () -> pessoaFísica.setDataDeNascimento(dataInválida)    ).isInstanceOf( DataInválidaException.class );
+
 
         String dataFuturo = "01/01/2050";
-        pessoaFísica.setDataDeNascimento(dataFuturo);
+        assertThatThrownBy( () -> pessoaFísica.setDataDeNascimento(dataFuturo)      ).isInstanceOf( DataInválidaException.class );
 
         String formatoInválido = "01012000";
-        pessoaFísica.setDataDeNascimento(formatoInválido);
+        assertThatThrownBy( () -> pessoaFísica.setDataDeNascimento(formatoInválido) ).isInstanceOf( DataInválidaException.class );
 
         // certifique-se...
-        Assert.assertEquals(dataVálida, pessoaFísica.getDataDeNascimento());
-        Assert.assertEquals(22, pessoaFísica.getIdade());
+        System.out.println(pessoaFísica.getDataDeNascimento() + " " + pessoaFísica.getIdade());
+        assertThat( pessoaFísica.getDataDeNascimento(), is( equalTo( dataVálida )));
+        Assert.assertEquals( idade, pessoaFísica.getIdade() );
     }
 }

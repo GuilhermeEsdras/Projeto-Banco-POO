@@ -84,7 +84,7 @@ public class Agência extends PessoaJurídica implements Comparable<Agência> {
     }
 
     public void setCódigo(String código) {
-        if (StringUtils.isNumeric(código) && (código.length() > 0 && código.length() <= 4) ) {
+        if (StringUtils.isNumeric(código) && (código.length() == 4) ) {
             this.código = código;
         } else {
             throw new CódigoAgênciaInválidoException();

@@ -88,7 +88,7 @@ public class Banco extends PessoaJurídica implements Comparable<Banco> {
     }
 
     public void setCódigo(String código) {
-        if (StringUtils.isNumeric(código) && (código.length() > 0 && código.length() <= 3) ) {
+        if (StringUtils.isNumeric(código) && (código.length() == 3) ) {
             this.código = código;
         } else {
             throw new CódigoBancoInválidoException();

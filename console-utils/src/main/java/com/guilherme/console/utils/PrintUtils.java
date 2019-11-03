@@ -7,7 +7,10 @@ public class PrintUtils {
     }
 
     public void printaDiv(String div, int quant) {
-        System.out.print(div.repeat(quant));
+        System.out.println(div.repeat(quant));
+    }
+    public void printaDivLn(String div, int quant) {
+        System.out.println(div.repeat(quant) + "\n");
     }
 
     public String divisóriaDeTexto(String texto, String divisória) {
@@ -39,6 +42,16 @@ public class PrintUtils {
         System.out.println(div);
         System.out.print(texto);
         System.out.println(div);
+    }
+
+    public int quantidadeDeLinhas(String texto) {
+        int cont = 1;
+        for (int i = 0; i < texto.length(); i++) {
+            if (texto.charAt(i) == '\n') {
+                cont++;
+            }
+        }
+        return cont;
     }
 
 }

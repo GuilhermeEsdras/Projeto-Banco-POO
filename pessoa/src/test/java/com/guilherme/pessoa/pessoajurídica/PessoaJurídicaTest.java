@@ -2,8 +2,11 @@ package com.guilherme.pessoa.pessoajurídica;
 
 import com.guilherme.pessoa.exceptions.CNPjInválidoException;
 
-// JUnit
+// Tests
 import org.junit.*;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.*;
+import static org.assertj.core.api.Assertions.*;
 
 public class PessoaJurídicaTest {
 
@@ -15,7 +18,7 @@ public class PessoaJurídicaTest {
         pessoaJurídica = new PessoaJurídica();
     }
 
-    @Test(expected = CNPjInválidoException.class)
+    @Test
     public void testSetGetCNPj() {
         // Test default
         Assert.assertEquals(PessoaJurídica.PESSOA_JURÍDICA_SEM_CNPJ, pessoaJurídica.getCNPj());
@@ -26,12 +29,12 @@ public class PessoaJurídicaTest {
         pessoaJurídica.setCNPj(CNPj);
 
         // evite...
-        pessoaJurídica.setCNPj("");
-        pessoaJurídica.setCNPj(CNPjFormatado);
-        pessoaJurídica.setCNPj("abc");
+        assertThatThrownBy( () -> pessoaJurídica.setCNPj(CNPjFormatado) ).isInstanceOf( CNPjInválidoException.class );
+        assertThatThrownBy( () -> pessoaJurídica.setCNPj("abc")         ).isInstanceOf( CNPjInválidoException.class );
 
         // certifique-se...
-        Assert.assertEquals(CNPjFormatado, pessoaJurídica.getCNPj());
+        System.out.println(pessoaJurídica.getCNPj());
+        assertThat( pessoaJurídica.getCNPj(), is( equalTo( CNPjFormatado )));
     }
 
     @Test
@@ -47,7 +50,8 @@ public class PessoaJurídicaTest {
         pessoaJurídica.setNomeFantasia("");
 
         // certifique-se...
-        Assert.assertEquals(nomeFantasia, pessoaJurídica.getNomeFantasia());
+        System.out.println(pessoaJurídica.getNomeFantasia());
+        assertThat( pessoaJurídica.getNomeFantasia(), is( equalTo( nomeFantasia )));
     }
 
     @Test
@@ -63,6 +67,7 @@ public class PessoaJurídicaTest {
         pessoaJurídica.setRazãoSocial("");
 
         // certifique-se...
-        Assert.assertEquals(razãoSocial, pessoaJurídica.getRazãoSocial());
+        System.out.println(pessoaJurídica.getRazãoSocial());
+        assertThat( pessoaJurídica.getRazãoSocial(), is( equalTo( razãoSocial )));
     }
 }

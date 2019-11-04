@@ -1,4 +1,4 @@
 module console.utils {
     exports com.guilherme.console.utils;
-    exports com.guilherme.console.utils.enums;
+    exports com.guilherme.console.utils.enums.cores;
 }

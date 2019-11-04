@@ -1,5 +1,6 @@
 package com.guilherme.cli;
 
+import com.guilherme.cli.login.TelaDeLogin;
 import com.guilherme.cli.welcome.BoasVindas;
 import com.guilherme.console.utils.PrintUtils;
 
@@ -11,10 +12,12 @@ public class MainCLI {
         PrintUtils printUtils = new PrintUtils();
 
         BoasVindas boasVindas = new BoasVindas();
-        boasVindas.printBoasVindas();
+        boasVindas.printBoasVindas(0);
 
-        printUtils.printaLn();
-        printUtils.printaDiv("-", 50);
+        printUtils.printaDiv("-", 87);
+
+        TelaDeLogin telaDeLogin = new TelaDeLogin();
+        telaDeLogin.exibirTelaDeLogin();
 
     }
 }

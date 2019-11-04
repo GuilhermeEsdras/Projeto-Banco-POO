@@ -5,7 +5,6 @@ import com.guilherme.console.utils.Block;
 import com.guilherme.console.utils.Board;
 import com.guilherme.console.utils.PrintUtils;
 import com.guilherme.console.utils.Table;
-import com.guilherme.console.utils.enums.Cor;
 import com.guilherme.usuário.exceptions.EmailInválidoException;
 import com.guilherme.usuário.exceptions.LoginInválidoException;
 import com.guilherme.usuário.exceptions.SenhaInválidaException;

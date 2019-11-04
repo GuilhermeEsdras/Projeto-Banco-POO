@@ -7,10 +7,28 @@ public class PrintUtils {
     }
 
     public void printaDiv(String div, int quant) {
-        System.out.println(div.repeat(quant));
+        System.out.println("+" + div.repeat(quant) + "+");
     }
     public void printaDivLn(String div, int quant) {
-        System.out.println(div.repeat(quant) + "\n");
+        System.out.println("+" + div.repeat(quant) + "+\n");
+    }
+
+    public void printHeader(String titulo, int tamanho) {
+        int tam = tamanho;
+        if (titulo.length() > tamanho) {
+            tam = titulo.length();
+        }
+
+        String div = "+" + "=".repeat(tam) + "+";
+        String esp = " ".repeat((tamanho - titulo.length()) / 2);
+
+        System.out.println(div);
+        System.out.print("|");
+        System.out.print(esp);
+        System.out.print(titulo);
+        System.out.print(esp);
+        System.out.println("|");
+        System.out.println(div);
     }
 
     public String divisóriaDeTexto(String texto, String divisória) {
@@ -40,7 +58,7 @@ public class PrintUtils {
     public void printaStringEntreDivs(String texto, String divisória) {
         String div = divisóriaDeTexto(texto, divisória);
         System.out.println(div);
-        System.out.print(texto);
+        System.out.println(texto);
         System.out.println(div);
     }
 

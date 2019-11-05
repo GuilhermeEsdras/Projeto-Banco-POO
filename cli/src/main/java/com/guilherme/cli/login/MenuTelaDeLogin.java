@@ -1,26 +1,12 @@
 package com.guilherme.cli.login;
 
+import com.guilherme.cli.Tela;
 import com.guilherme.cli.exceptions.OpçãoInválidaException;
 import com.guilherme.cli.login.enums.OpçõesMenuLogin;
 
 import java.util.EnumSet;
 
-public class MenuTelaDeLogin {
-
-    private int opçãoMenuTelaDeLogin;
-
-    public int getOpçãoMenuTelaDeLogin() {
-        return opçãoMenuTelaDeLogin;
-    }
-
-    public void setOpçãoMenuTelaDeLogin(int opçãoMenuTelaDeLogin) {
-        if (opçãoMenuTelaDeLogin > 0 && opçãoMenuTelaDeLogin <= OpçõesMenuLogin.values().length) {
-            this.opçãoMenuTelaDeLogin = opçãoMenuTelaDeLogin - 1;
-        } else {
-            throw new OpçãoInválidaException();
-        }
-    }
-
+public class MenuTelaDeLogin extends Tela {
 
     public void exibirMenuTelaDeLogin() {
         System.out.print("  O que deseja fazer?");

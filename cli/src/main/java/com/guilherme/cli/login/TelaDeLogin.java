@@ -49,8 +49,8 @@ public class TelaDeLogin {
         /* --- */
 
         menuTelaDeLogin.exibirMenuTelaDeLogin();
-        menuTelaDeLogin.setOpçãoMenuTelaDeLogin( scannerUtils.inputInt() );
-        menuTelaDeLogin.capturaOpçõesMenuTelaDeLogin( menuTelaDeLogin.getOpçãoMenuTelaDeLogin() );
+        menuTelaDeLogin.setOpção( scannerUtils.inputInt(), OpçõesMenuLogin.class );
+        menuTelaDeLogin.capturaOpçõesMenuTelaDeLogin( menuTelaDeLogin.getOpção() );
     }
 
     public void exibirStatusDoSistema()

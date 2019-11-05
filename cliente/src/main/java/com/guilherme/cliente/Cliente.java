@@ -10,48 +10,29 @@ import java.util.TreeSet;
 
 /**
  * <h1>Cliente</h1>
- * <p>Classe que representa um Cliente do Banco.</p>
+ * <p>Interface que representa um Cliente do Banco.</p>
  *
- * <p>Este Cliente pode possuir mais de uma Conta Corrente e Conta Poupança, por isso, são armazenados em listas
- * separadas.</p>
- *
- * @since 1.0
+ * @since 2.0
  * @author Guilherme Esdras
- * @version 1.0
+ * @version 2.0
  */
-public abstract class Cliente {
+public interface Cliente {
 
-    private Set<ContaCorrente> listaDeContasCorrente;
-    private Set<ContaPoupança> listaDeContasPoupança;
+    Set<ContaCorrente> getListaDeContasCorrente();
+    void setListaDeContasCorrente(Set<ContaCorrente> listaDeContasCorrente);
 
-    {
-        this.setListaDeContasCorrente(new TreeSet<>());
-        this.setListaDeContasPoupança(new TreeSet<>());
-    }
-
-    public Set<ContaCorrente> getListaDeContasCorrente() {
-        return listaDeContasCorrente;
-    }
-
-    public void setListaDeContasCorrente(Set<ContaCorrente> listaDeContasCorrente) {
-        this.listaDeContasCorrente = listaDeContasCorrente;
-    }
-
-    public Set<ContaPoupança> getListaDeContasPoupança() {
-        return listaDeContasPoupança;
-    }
-
-    public void setListaDeContasPoupança(Set<ContaPoupança> listaDeContasPoupança) {
-        this.listaDeContasPoupança = listaDeContasPoupança;
-    }
+    Set<ContaPoupança> getListaDeContasPoupança();
+    void setListaDeContasPoupança(Set<ContaPoupança> listaDeContasPoupança);
 
     /**
      * Cria uma nova Conta Corrente para o Cliente e armazena-a na lista de Contas Corrente do mesmo.
      * @param depósitoInicial: Quantia inicial de depósito para a conta.
      * @return Valor Booleano: True se der certo, False caso contrário.
      */
-    public boolean abrirContaCorrente(double depósitoInicial) {
-        return true;
+    boolean abrirContaCorrente(double depósitoInicial);
+
+    default boolean removerContaCorrente(String número) {
+        return getListaDeContasCorrente().removeIf( contaCorrente -> contaCorrente.getNúmero().equals(número) );
     }
 
     /**
@@ -59,7 +40,9 @@ public abstract class Cliente {
      * @param depósitoInicial: Quantia inicial de depósito para a conta.
      * @return Valor Booleano: True se der certo, False caso contrário.
      */
-    public boolean abrirContaPoupança(double depósitoInicial) {
-        return true;
+    boolean abrirContaPoupança(double depósitoInicial);
+
+    default boolean removerContaPoupança(String número) {
+        return getListaDeContasPoupança().removeIf( contaPoupança -> contaPoupança.getNúmero().equals( número ));
     }
 }

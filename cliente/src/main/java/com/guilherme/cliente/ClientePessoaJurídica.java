@@ -1,18 +1,30 @@
 package com.guilherme.cliente;
 
+import com.guilherme.conta.contacorrente.ContaCorrente;
+import com.guilherme.conta.contapoupança.ContaPoupança;
 import com.guilherme.pessoa.pessoajurídica.PessoaJurídica;
 
+import java.util.Date;
 import java.util.Objects;
+import java.util.Set;
+import java.util.TreeSet;
 
-public class ClientePessoaJurídica extends Cliente implements Comparable<ClientePessoaJurídica> {
+public class ClientePessoaJurídica implements Cliente, Comparable<ClientePessoaJurídica> {
 
     /* Atributos */
     private PessoaJurídica pessoaJurídica;
+    private Set<ContaCorrente> listaDeContasCorrente;
+    private Set<ContaPoupança> listaDeContasPoupança;
 
 
     /* ------------------ */
     /* .::Construtores::. */
     /* ------------------ */
+
+    {
+        this.setListaDeContasCorrente(new TreeSet<>());
+        this.setListaDeContasPoupança(new TreeSet<>());
+    }
 
     // Construtor vazio
     public ClientePessoaJurídica() {
@@ -40,6 +52,46 @@ public class ClientePessoaJurídica extends Cliente implements Comparable<Client
     }
 
 
+    /* ------------------------------------- */
+    /* .:: Manipulação de Contas Corrente::. */
+    /* ------------------------------------- */
+
+    @Override
+    public Set<ContaCorrente> getListaDeContasCorrente() {
+        return this.listaDeContasCorrente;
+    }
+
+    @Override
+    public void setListaDeContasCorrente(Set<ContaCorrente> listaDeContasCorrente) {
+        this.listaDeContasCorrente = listaDeContasCorrente;
+    }
+
+    @Override
+    public boolean abrirContaCorrente(double depósitoInicial) {
+        return getListaDeContasCorrente().add( new ContaCorrente( getPessoaJurídica(), depósitoInicial, 400 ) );
+    }
+
+
+    /* ------------------------------------- */
+    /* .:: Manipulação de Contas Poupança::. */
+    /* ------------------------------------- */
+
+    @Override
+    public Set<ContaPoupança> getListaDeContasPoupança() {
+        return this.listaDeContasPoupança;
+    }
+
+    @Override
+    public void setListaDeContasPoupança(Set<ContaPoupança> listaDeContasPoupança) {
+        this.listaDeContasPoupança = listaDeContasPoupança;
+    }
+
+    @Override
+    public boolean abrirContaPoupança(double depósitoInicial) {
+        return getListaDeContasPoupança().add( new ContaPoupança( getPessoaJurídica(), depósitoInicial, new Date() ) );
+    }
+
+
     /* ----------------------- */
     /* .::Equals e Hashcode::. */
     /* ----------------------- */
@@ -61,8 +113,6 @@ public class ClientePessoaJurídica extends Cliente implements Comparable<Client
     }
 
 
-
-
     /* ---------------- */
     /* .::Comparador::. */
     /* ---------------- */
@@ -72,4 +122,5 @@ public class ClientePessoaJurídica extends Cliente implements Comparable<Client
     public int compareTo(ClientePessoaJurídica outraPessoaJurídica) {
         return this.getPessoaJurídica().getNomeFantasia().compareTo(outraPessoaJurídica.getPessoaJurídica().getNomeFantasia());
     }
+
 }

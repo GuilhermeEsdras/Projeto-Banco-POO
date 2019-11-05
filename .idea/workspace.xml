@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97eff0b7-0000-4dd1-bfd6-9ae04316cda3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/cadastro/TelaDeCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/cadastro/TelaDeCadastro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/Tela.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/cadastro/TelaDeCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/cadastro/MenuDeCadastro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/login/MenuTelaDeLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/login/MenuTelaDeLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/login/TelaDeLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/login/TelaDeLogin.java" afterDir="false" />
     </list>
@@ -196,7 +198,7 @@
       <workItem from="1572796526342" duration="11806000" />
       <workItem from="1572816640993" duration="12860000" />
       <workItem from="1572905684658" duration="5416000" />
-      <workItem from="1572915583160" duration="7378000" />
+      <workItem from="1572915583160" duration="12927000" />
     </task>
     <task id="LOCAL-00001" summary="Módulos criados">
       <created>1572094180201</created>

@@ -1,32 +1,28 @@
 package com.guilherme.cli.login;
 
-import com.guilherme.cli.exceptions.OpçãoInválidaException;
-import com.guilherme.cli.login.enums.OpçõesMenuLogin;
 import com.guilherme.console.utils.PrintUtils;
 import com.guilherme.console.utils.ScannerUtils;
 import com.guilherme.console.utils.enums.cores.TextColor;
 
 import java.util.Calendar;
-import java.util.EnumSet;
 
 public class TelaDeLogin {
 
-    private MenuTelaDeLogin menuTelaDeLogin;
     private PrintUtils      printUtils;
     private ScannerUtils    scannerUtils;
 
     {
-        menuTelaDeLogin = new MenuTelaDeLogin();
         printUtils      = new PrintUtils();
         scannerUtils    = new ScannerUtils();
     }
 
     public void exibirTelaDeLogin()
     {
+        // Printa Header
         printUtils.printHeader("Tela de Login", 87);
 
-        /* --- */
 
+        // Exibe msg de Boas Vindas
         int horaAtual = Calendar.getInstance().get(Calendar.HOUR_OF_DAY) -1;
         System.out.print("> ");
         if (horaAtual >= 1 && horaAtual <= 11) {
@@ -38,19 +34,20 @@ public class TelaDeLogin {
         }
         System.out.println("  Seja bem-vindo! :D");
 
-        /* --- */
-
         printUtils.printaLn();
 
+
+        // Exibe Status do Sistema
         exibirStatusDoSistema();
 
         printUtils.printaDiv("-", 87);
 
-        /* --- */
 
-        menuTelaDeLogin.exibirMenuTelaDeLogin();
-        menuTelaDeLogin.setOpção( scannerUtils.inputInt(), OpçõesMenuLogin.class );
-        menuTelaDeLogin.capturaOpçõesMenuTelaDeLogin( menuTelaDeLogin.getOpção() );
+        // Exibe Menu com opções da tela de login
+        MenuTelaDeLogin menuTelaDeLogin = new MenuTelaDeLogin();
+        menuTelaDeLogin.exibirMenu( "O que deseja fazer?", "Digite a opção:" );
+        menuTelaDeLogin.capturaOpção( scannerUtils.inputInt() );
+        menuTelaDeLogin.executa();
     }
 
     public void exibirStatusDoSistema()

@@ -1,32 +1,20 @@
 package com.guilherme.cli.login;
 
-import com.guilherme.cli.Tela;
-import com.guilherme.cli.exceptions.OpçãoInválidaException;
+import com.guilherme.cli.Menu;
 import com.guilherme.cli.login.enums.OpçõesMenuLogin;
 
-import java.util.EnumSet;
 
-public class MenuTelaDeLogin extends Tela {
+public class MenuTelaDeLogin extends Menu {
 
-    public void exibirMenuTelaDeLogin() {
-        System.out.print("  O que deseja fazer?");
-
-        EnumSet.allOf(OpçõesMenuLogin.class).forEach(
-                OpçõesMenuLogin -> System.out.print(
-                        "\n\t" +
-                                (OpçõesMenuLogin.ordinal() +1) +
-                                ". " +
-                                OpçõesMenuLogin.toString()
-                )
-        );
-
-        System.out.print("\n\t Digite sua opção: ");
+    {
+        setOpçõesDoMenu(OpçõesMenuLogin.class);
     }
 
-    public void capturaOpçõesMenuTelaDeLogin(int opção) {
-        OpçõesMenuLogin opçãoMenuLogin = OpçõesMenuLogin.values()[opção];
+    @Override
+    public void executaOpção(int opção) {
+        OpçõesMenuLogin opçõesMenuLogin = OpçõesMenuLogin.values()[opção];
 
-        switch (opçãoMenuLogin) {
+        switch (opçõesMenuLogin) {
             case FAZER_LOGIN:
                 TelaDeAutenticação telaDeAutenticação = new TelaDeAutenticação();
                 telaDeAutenticação.autentica();

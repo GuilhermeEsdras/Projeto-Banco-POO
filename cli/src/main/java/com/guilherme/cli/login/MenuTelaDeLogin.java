@@ -1,6 +1,7 @@
 package com.guilherme.cli.login;
 
 import com.guilherme.cli.Menu;
+import com.guilherme.cli.cadastro.TelaDeCadastro;
 import com.guilherme.cli.login.enums.OpçõesMenuLogin;
 
 
@@ -21,7 +22,11 @@ public class MenuTelaDeLogin extends Menu {
                 break;
 
             case CADASTRAR:
-                System.out.println("Cadastrando...");
+                String tituloCadastrar = "Tela de Cadastro";
+                printUtils.printaDiv("-", 5);
+                systemUtils.carregar(tituloCadastrar, 1);
+                TelaDeCadastro telaDeCadastro = new TelaDeCadastro(tituloCadastrar);
+                telaDeCadastro.exibirTela();
                 break;
 
             case RECUPERAR_SENHA:
@@ -29,8 +34,8 @@ public class MenuTelaDeLogin extends Menu {
                 break;
 
             case SAIR:
-                System.out.println("Saindo...");
-                System.exit(0);
+                printUtils.printaDiv("-", 5);
+                systemUtils.sair();
         }
     }
 

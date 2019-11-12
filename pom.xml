@@ -28,6 +28,7 @@
         <module>cli</module>
         <module>gui</module>
         <module>persistence</module>
+        <module>main</module>
     </modules>
 
     <!-- Variáveis Globais -->

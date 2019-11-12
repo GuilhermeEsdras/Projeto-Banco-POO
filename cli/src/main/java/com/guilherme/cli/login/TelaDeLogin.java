@@ -1,26 +1,21 @@
 package com.guilherme.cli.login;
 
+import com.guilherme.cli.Tela;
+import com.guilherme.cli.exceptions.OpçãoInválidaException;
 import com.guilherme.console.utils.PrintUtils;
 import com.guilherme.console.utils.ScannerUtils;
 import com.guilherme.console.utils.enums.cores.TextColor;
 
 import java.util.Calendar;
 
-public class TelaDeLogin {
+public class TelaDeLogin extends Tela {
 
-    private PrintUtils      printUtils;
-    private ScannerUtils    scannerUtils;
-
-    {
-        printUtils      = new PrintUtils();
-        scannerUtils    = new ScannerUtils();
+    public TelaDeLogin(String titulo) {
+        super(titulo);
     }
 
-    public void exibirTelaDeLogin()
-    {
-        // Printa Header
-        printUtils.printHeader("Tela de Login", 87);
-
+    @Override
+    public void exibirTela() {
 
         // Exibe msg de Boas Vindas
         int horaAtual = Calendar.getInstance().get(Calendar.HOUR_OF_DAY) -1;
@@ -46,11 +41,12 @@ public class TelaDeLogin {
         // Exibe Menu com opções da tela de login
         MenuTelaDeLogin menuTelaDeLogin = new MenuTelaDeLogin();
         menuTelaDeLogin.exibirMenu( "O que deseja fazer?", "Digite a opção:" );
-        menuTelaDeLogin.capturaOpção( scannerUtils.inputInt() );
+        menuTelaDeLogin.capturaOpção();
         menuTelaDeLogin.executa();
+
     }
 
-    public void exibirStatusDoSistema()
+    private void exibirStatusDoSistema()
     {
         int quantDeBancos       = 0,
             quantDeAgencias     = 0,
@@ -70,5 +66,4 @@ public class TelaDeLogin {
         System.out.print(TextColor.RESET);
 
     }
-
 }

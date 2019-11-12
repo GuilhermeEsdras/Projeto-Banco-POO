@@ -2,12 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97eff0b7-0000-4dd1-bfd6-9ae04316cda3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/cadastro/telasdecadastro/cliente/TelaDeCadastroDeCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/Tela.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/cadastro/TelaDeCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/cadastro/MenuDeCadastro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cli/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/MainCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/TestCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/cadastro/MenuDeCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/cadastro/MenuTelaDeCadastro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/cadastro/enums/OpçõesMenuCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/cadastro/enums/OpçõesMenuCadastro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/cadastro/telasdecadastro/cliente/CadastroDeCliente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/cadastro/telasdecadastro/cliente/enums/OpçõesMenuCadastroCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/cadastro/telasdecadastro/cliente/enums/OpçõesMenuCadastroCliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/login/MenuTelaDeLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/login/MenuTelaDeLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/login/TelaDeLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/login/TelaDeLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/login/enums/OpçõesMenuLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/guilherme/cli/login/enums/OpçõesMenuLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funcionario/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/funcionario/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gui/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/src/main/java/com/guilherme/gui/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/java/com/guilherme/gui/TestGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/persistence/target/classes/databases/json/agenciasdb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persistence/target/classes/databases/json/bancosdb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persistence/target/classes/databases/json/clientesdb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persistence/target/classes/databases/json/funcionariosdb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +74,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -92,9 +109,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainCLI">
-    <configuration name="MainCLI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.guilherme.cli.MainCLI" />
+  <component name="RunManager">
+    <configuration name="TestCLI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.guilherme.cli.TestCLI" />
       <module name="cli" />
       <extension name="coverage">
         <pattern>
@@ -160,7 +177,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainCLI" />
+        <item itemvalue="Application.TestCLI" />
         <item itemvalue="Application.TestesClientesPessoaFísica" />
         <item itemvalue="Application.TesteJsonDB" />
         <item itemvalue="Application.Testes" />
@@ -199,6 +216,7 @@
       <workItem from="1572816640993" duration="12860000" />
       <workItem from="1572905684658" duration="5416000" />
       <workItem from="1572915583160" duration="12927000" />
+      <workItem from="1573513602555" duration="13688000" />
     </task>
     <task id="LOCAL-00001" summary="Módulos criados">
       <created>1572094180201</created>

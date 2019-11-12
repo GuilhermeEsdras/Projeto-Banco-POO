@@ -8,15 +8,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="cliente" />
         <module name="conta" />
+        <module name="main" />
         <module name="agencia" />
         <module name="cli" />
-        <module name="persistence" />
+        <module name="gui" />
         <module name="funcionario" />
         <module name="console-utils" />
         <module name="usuario" />
         <module name="banco" />
         <module name="pessoa" />
-        <module name="gui" />
+        <module name="persistence" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -28,6 +29,7 @@
       <module name="conta" target="11" />
       <module name="funcionario" target="11" />
       <module name="gui" target="11" />
+      <module name="main" target="11" />
       <module name="persistence" target="11" />
       <module name="pessoa" target="11" />
       <module name="ProjetoBancoPOO" target="11" />

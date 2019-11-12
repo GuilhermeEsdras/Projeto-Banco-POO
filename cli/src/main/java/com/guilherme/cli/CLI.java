@@ -4,11 +4,9 @@ import com.guilherme.cli.login.TelaDeLogin;
 import com.guilherme.cli.welcome.BoasVindas;
 import com.guilherme.console.utils.PrintUtils;
 
+public class CLI {
 
-public class MainCLI {
-    public static void main(String[] args)
-    {
-
+    public void runCLI() {
         PrintUtils printUtils = new PrintUtils();
 
         BoasVindas boasVindas = new BoasVindas();
@@ -16,8 +14,8 @@ public class MainCLI {
 
         printUtils.printaDiv("-", 87);
 
-        TelaDeLogin telaDeLogin = new TelaDeLogin();
-        telaDeLogin.exibirTelaDeLogin();
-
+        TelaDeLogin telaDeLogin = new TelaDeLogin("Tela de Login");
+        telaDeLogin.exibirTela();
     }
+
 }

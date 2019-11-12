@@ -5,8 +5,9 @@ import com.guilherme.gui.cadastro.TelaDeCadastro;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainGUI {
-    public static void main(String[] args) {
+public class GUI {
+
+    public void runGUI() {
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -20,4 +21,5 @@ public class MainGUI {
 
         EventQueue.invokeLater(() -> new TelaDeCadastro().setVisible(true));
     }
+
 }
